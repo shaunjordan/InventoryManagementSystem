@@ -15,15 +15,20 @@ namespace InventoryManagementLibrary
         /// 
         /// </summary>
         /// <param name=""></param>
-        public void AddProduct(product) { }
+        public void AddProduct(Product product) { }
 
-        public bool RemoveProduct(int) { }
+        public bool RemoveProduct(int productID) { }
 
-        public Product LookupProduct(int) { }
+        public Product LookupProduct(int productID) { }
 
-        public void UpdateProudct(int, product) { }
+        public void UpdateProudct(int productID, Product product) { }
 
-        public void AddPart(part) { }
+        public void AddPart(Part part) { }
 
+        public bool DeletePart(Part part) { }
+
+        public Part LookupPart(int partID) { }
+
+        public void UpdatePart(int partID, Part part) { }
     }
 }

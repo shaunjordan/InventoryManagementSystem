@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementLibrary", "InventoryManagementLibrary\InventoryManagementLibrary.csproj", "{AF40A9FC-4E9A-4C99-9BB5-367D4151C76A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryUI", "InventoryUI\InventoryUI.csproj", "{6090938C-DCBD-4AE1-94D4-E0E81BBFA728}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF40A9FC-4E9A-4C99-9BB5-367D4151C76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF40A9FC-4E9A-4C99-9BB5-367D4151C76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF40A9FC-4E9A-4C99-9BB5-367D4151C76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6090938C-DCBD-4AE1-94D4-E0E81BBFA728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6090938C-DCBD-4AE1-94D4-E0E81BBFA728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6090938C-DCBD-4AE1-94D4-E0E81BBFA728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6090938C-DCBD-4AE1-94D4-E0E81BBFA728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
