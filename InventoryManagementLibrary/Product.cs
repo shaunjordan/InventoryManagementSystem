@@ -17,8 +17,8 @@ namespace InventoryManagementLibrary
         int min { get; set; }
         int max { get; set; }
 
-        public void AddAssociatedPart(part) { }
-        public bool RemoveAssociatedPart(int) { }
-        public Part LookupAssociatedPart(int) { }
+        //public void AddAssociatedPart(part) { }
+        //public bool RemoveAssociatedPart(int) { }
+        //public Part LookupAssociatedPart(int) { }
     }
 }

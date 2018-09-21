@@ -8,8 +8,8 @@ namespace InventoryManagementLibrary
 {
     public class Inventory
     {
-        List<Product> Products = new List<Product>;
-        List<Part> AllParts = new List<Part>;
+        List<Product> Products = new List<Product>();
+        List<Part> AllParts = new List<Part>();
         
         /// <summary>
         /// 
@@ -17,17 +17,21 @@ namespace InventoryManagementLibrary
         /// <param name=""></param>
         public void AddProduct(Product product) { }
 
-        public bool RemoveProduct(int productID) { }
+        public bool RemoveProduct(int productID) {
+            return true;
+        }
 
-        public Product LookupProduct(int productID) { }
+        //public Product LookupProduct(int productID) {
+           
+        //}
 
         public void UpdateProudct(int productID, Product product) { }
 
         public void AddPart(Part part) { }
 
-        public bool DeletePart(Part part) { }
+        //public bool DeletePart(Part part) { }
 
-        public Part LookupPart(int partID) { }
+        //public Part LookupPart(int partID) { }
 
         public void UpdatePart(int partID, Part part) { }
     }

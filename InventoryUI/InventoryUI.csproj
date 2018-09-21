@@ -77,6 +77,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddPart.resx">
+      <DependentUpon>AddPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyPart.resx">
+      <DependentUpon>ModifyPart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModifyProduct.resx">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </EmbeddedResource>
