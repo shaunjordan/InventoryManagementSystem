@@ -20,6 +20,11 @@ namespace InventoryManagementLibrary
             
         }
 
+        public List<Part> getPartsList()
+        {
+            return AllParts;
+        }
+
         public bool RemoveProduct(int productID) {
 
             bool itemRemoved = false;

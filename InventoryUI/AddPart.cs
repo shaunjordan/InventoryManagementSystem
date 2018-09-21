@@ -17,8 +17,18 @@ namespace InventoryUI
         {
             InitializeComponent();
 
-            Inventory here = new Inventory();
-            here.
+        }
+
+        private void savePartButton_Click(object sender, EventArgs e)
+        {
+            Inventory inventory = new Inventory();
+            Inhouse part = new Inhouse();
+            part.partID = 2;
+            part.name = partNameTextBox.Text;
+
+            inventory.AddPart(part);
+
+            this.Close();            
         }
     }
 }

@@ -73,9 +73,9 @@
             this.partsGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.partsGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsGroupBox.Location = new System.Drawing.Point(426, 23);
-            this.partsGroupBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partsGroupBox.Margin = new System.Windows.Forms.Padding(6);
             this.partsGroupBox.Name = "partsGroupBox";
-            this.partsGroupBox.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partsGroupBox.Padding = new System.Windows.Forms.Padding(6);
             this.partsGroupBox.Size = new System.Drawing.Size(750, 819);
             this.partsGroupBox.TabIndex = 1;
             this.partsGroupBox.TabStop = false;
@@ -84,7 +84,7 @@
             // partMinTextBox
             // 
             this.partMinTextBox.Location = new System.Drawing.Point(316, 481);
-            this.partMinTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partMinTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.partMinTextBox.Name = "partMinTextBox";
             this.partMinTextBox.Size = new System.Drawing.Size(116, 42);
             this.partMinTextBox.TabIndex = 4;
@@ -93,7 +93,7 @@
             // partMaxTextBox
             // 
             this.partMaxTextBox.Location = new System.Drawing.Point(530, 481);
-            this.partMaxTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partMaxTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.partMaxTextBox.Name = "partMaxTextBox";
             this.partMaxTextBox.Size = new System.Drawing.Size(116, 42);
             this.partMaxTextBox.TabIndex = 4;
@@ -102,7 +102,7 @@
             // partCompanyName
             // 
             this.partCompanyName.Location = new System.Drawing.Point(316, 563);
-            this.partCompanyName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partCompanyName.Margin = new System.Windows.Forms.Padding(6);
             this.partCompanyName.Name = "partCompanyName";
             this.partCompanyName.Size = new System.Drawing.Size(284, 42);
             this.partCompanyName.TabIndex = 4;
@@ -111,7 +111,7 @@
             // partPriceCostTextBox
             // 
             this.partPriceCostTextBox.Location = new System.Drawing.Point(316, 388);
-            this.partPriceCostTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partPriceCostTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.partPriceCostTextBox.Name = "partPriceCostTextBox";
             this.partPriceCostTextBox.Size = new System.Drawing.Size(284, 42);
             this.partPriceCostTextBox.TabIndex = 4;
@@ -120,7 +120,7 @@
             // partInvTextBox
             // 
             this.partInvTextBox.Location = new System.Drawing.Point(316, 310);
-            this.partInvTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partInvTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.partInvTextBox.Name = "partInvTextBox";
             this.partInvTextBox.Size = new System.Drawing.Size(284, 42);
             this.partInvTextBox.TabIndex = 4;
@@ -129,7 +129,7 @@
             // partNameTextBox
             // 
             this.partNameTextBox.Location = new System.Drawing.Point(316, 240);
-            this.partNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partNameTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.partNameTextBox.Name = "partNameTextBox";
             this.partNameTextBox.Size = new System.Drawing.Size(284, 42);
             this.partNameTextBox.TabIndex = 4;
@@ -138,7 +138,7 @@
             // partIDTextBox
             // 
             this.partIDTextBox.Location = new System.Drawing.Point(316, 171);
-            this.partIDTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.partIDTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.partIDTextBox.Name = "partIDTextBox";
             this.partIDTextBox.ReadOnly = true;
             this.partIDTextBox.Size = new System.Drawing.Size(196, 42);
@@ -227,7 +227,7 @@
             this.outsourcedRadioButton.AutoSize = true;
             this.outsourcedRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.outsourcedRadioButton.Location = new System.Drawing.Point(508, 46);
-            this.outsourcedRadioButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.outsourcedRadioButton.Margin = new System.Windows.Forms.Padding(6);
             this.outsourcedRadioButton.Name = "outsourcedRadioButton";
             this.outsourcedRadioButton.Size = new System.Drawing.Size(182, 40);
             this.outsourcedRadioButton.TabIndex = 2;
@@ -239,7 +239,7 @@
             this.inhouseRadioButton.AutoSize = true;
             this.inhouseRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inhouseRadioButton.Location = new System.Drawing.Point(316, 46);
-            this.inhouseRadioButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.inhouseRadioButton.Margin = new System.Windows.Forms.Padding(6);
             this.inhouseRadioButton.Name = "inhouseRadioButton";
             this.inhouseRadioButton.Size = new System.Drawing.Size(152, 40);
             this.inhouseRadioButton.TabIndex = 2;
@@ -254,7 +254,7 @@
             this.cancelAddPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.cancelAddPartButton.ForeColor = System.Drawing.SystemColors.Window;
             this.cancelAddPartButton.Location = new System.Drawing.Point(560, 698);
-            this.cancelAddPartButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cancelAddPartButton.Margin = new System.Windows.Forms.Padding(6);
             this.cancelAddPartButton.Name = "cancelAddPartButton";
             this.cancelAddPartButton.Size = new System.Drawing.Size(140, 63);
             this.cancelAddPartButton.TabIndex = 1;
@@ -269,12 +269,13 @@
             this.savePartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.savePartButton.ForeColor = System.Drawing.SystemColors.Window;
             this.savePartButton.Location = new System.Drawing.Point(408, 698);
-            this.savePartButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.savePartButton.Margin = new System.Windows.Forms.Padding(6);
             this.savePartButton.Name = "savePartButton";
             this.savePartButton.Size = new System.Drawing.Size(140, 63);
             this.savePartButton.TabIndex = 1;
             this.savePartButton.Text = "Save";
             this.savePartButton.UseVisualStyleBackColor = false;
+            this.savePartButton.Click += new System.EventHandler(this.savePartButton_Click);
             // 
             // AddPart
             // 
@@ -282,7 +283,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 865);
             this.Controls.Add(this.partsGroupBox);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AddPart";
             this.partsGroupBox.ResumeLayout(false);
             this.partsGroupBox.PerformLayout();
