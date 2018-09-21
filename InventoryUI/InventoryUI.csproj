@@ -111,5 +111,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManagementLibrary\InventoryManagementLibrary.csproj">
+      <Project>{af40a9fc-4e9a-4c99-9bb5-367d4151c76a}</Project>
+      <Name>InventoryManagementLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

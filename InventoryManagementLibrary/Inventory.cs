@@ -15,19 +15,36 @@ namespace InventoryManagementLibrary
         /// 
         /// </summary>
         /// <param name=""></param>
-        public void AddProduct(Product product) { }
-
-        public bool RemoveProduct(int productID) {
-            return true;
+        public void AddProduct(Product product) {
+            Products.Add(product);
+            
         }
 
-        //public Product LookupProduct(int productID) {
-           
+        public bool RemoveProduct(int productID) {
+
+            bool itemRemoved = false;
+            Products.RemoveAt(1);
+            itemRemoved = true;
+
+            return itemRemoved;
+        }
+
+        //public Product LookupProduct(int productID)
+        //{
+        //    foreach (var item in Products)
+        //    {
+        //        if (Products.Find(Product.productID))
+        //        {
+        //            Product.
+        //        }
+        //    }
         //}
 
         public void UpdateProudct(int productID, Product product) { }
 
-        public void AddPart(Part part) { }
+        public void AddPart(Part part) {
+            AllParts.Add(part);
+        }
 
         //public bool DeletePart(Part part) { }
 

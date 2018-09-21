@@ -8,11 +8,11 @@ namespace InventoryManagementLibrary
 {
     public abstract class Part : Inventory
     {
-        int partID { get; set; }
-        string name { get; set; }
-        double price { get; set; }
-        int inStock { get; set; }
-        int min { get; set; }
-        int max { get; set; }
+        public int partID { get; set; }
+        public string name { get; set; }
+        public double price { get; set; }
+        public int inStock { get; set; }
+        public int min { get; set; }
+        public int max { get; set; }
     }
 }

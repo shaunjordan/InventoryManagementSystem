@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryManagementLibrary;
 
 namespace InventoryUI
 {
@@ -15,6 +16,16 @@ namespace InventoryUI
         public MainForm()
         {
             InitializeComponent();
+
+            Inventory inventory = new Inventory();
+            Part newPart = new Outsourced();
+            newPart.partID = 2;
+            newPart.name = "Wrench";
+
+            inventory.AddPart(newPart);
+
+            
+            
         }
 
         private void exitButton_Click(object sender, EventArgs e)
