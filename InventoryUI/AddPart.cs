@@ -13,22 +13,30 @@ namespace InventoryUI
 {
     public partial class AddPart : Form
     {
-        public AddPart()
+        
+        private Inventory inventory;
+
+        public AddPart(Inventory inventoryClass)
         {
             InitializeComponent();
 
+            inventory = inventoryClass;
+            
         }
 
         private void savePartButton_Click(object sender, EventArgs e)
         {
-            Inventory inventory = new Inventory();
+            Random randPartNumber = new Random();           
             Inhouse part = new Inhouse();
-            part.partID = 2;
+            part.partID = randPartNumber.Next(1000, 99999);
             part.name = partNameTextBox.Text;
+            
+
 
             inventory.AddPart(part);
 
-            this.Close();            
+
+            //this.Close();
         }
     }
 }

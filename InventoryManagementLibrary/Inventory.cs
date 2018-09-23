@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
 namespace InventoryManagementLibrary
 {
     public class Inventory
     {
-        List<Product> Products = new List<Product>();
-        List<Part> AllParts = new List<Part>();
+        BindingList<Product> Products = new BindingList<Product>();
+        BindingList<Part> AllParts = new BindingList<Part>();
+
         
         /// <summary>
         /// 
@@ -17,12 +18,16 @@ namespace InventoryManagementLibrary
         /// <param name=""></param>
         public void AddProduct(Product product) {
             Products.Add(product);
-            
         }
 
-        public List<Part> getPartsList()
+        public BindingList<Part> getPartsList()
         {
             return AllParts;
+        }
+
+        public BindingList<Product> getProductList()
+        {
+            return Products;
         }
 
         public bool RemoveProduct(int productID) {
@@ -51,7 +56,9 @@ namespace InventoryManagementLibrary
             AllParts.Add(part);
         }
 
-        //public bool DeletePart(Part part) { }
+        public bool DeletePart(Part part) {
+            return true;
+        }
 
         //public Part LookupPart(int partID) { }
 

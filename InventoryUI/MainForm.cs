@@ -13,11 +13,13 @@ namespace InventoryUI
 {
     public partial class MainForm : Form
     {
+        Inventory inventory = new Inventory();
         public MainForm()
         {
             InitializeComponent();
 
-            Inventory inventory = new Inventory();
+
+
             Inhouse newPart = new Inhouse();
             newPart.partID = 2;
             newPart.name = "Wrench";
@@ -25,15 +27,17 @@ namespace InventoryUI
 
             Outsourced outsourcedpart = new Outsourced();
             outsourcedpart.name = "Filter";
+
+            Product newProduct = new Product() { productID = 5, name="Bicycle"};
             
+
             inventory.AddPart(newPart);
             inventory.AddPart(outsourcedpart);
 
-           //List<Inventory> list = new List<Inventory>(inventory.getPartsList());
+            var bindingList = inventory.getPartsList();
 
-            //var allParts = new BindingList<Inventory>(list);
-            //partsDataGrid.DataSource = allParts;
-            partsDataGrid.DataSource = inventory.getPartsList();
+            productsDataGrid.DataSource = inventory.getProductList();
+            partsDataGrid.DataSource = bindingList;
 
         }
 
@@ -44,8 +48,15 @@ namespace InventoryUI
 
         private void addPartsButton_Click(object sender, EventArgs e)
         {
-            AddPart addPartForm = new AddPart();
+            AddPart addPartForm = new AddPart(inventory);
             addPartForm.Show();
+        }
+
+        private void deletePartButton_Click(object sender, EventArgs e)
+        {
+            //partsDataGrid.SelectedRows[0].Index.ToString();
+            MessageBox.Show(partsDataGrid.SelectedRows[0].Index.ToString());
+            //inventory.DeletePart();
         }
     }
 }
