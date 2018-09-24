@@ -14,6 +14,7 @@ namespace InventoryUI
     public partial class MainForm : Form
     {
         Inventory inventory = new Inventory();
+        
         public MainForm()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace InventoryUI
 
             productsDataGrid.DataSource = inventory.getProductList();
             partsDataGrid.DataSource = bindingList;
-
+            
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -55,8 +56,13 @@ namespace InventoryUI
         private void deletePartButton_Click(object sender, EventArgs e)
         {
             //partsDataGrid.SelectedRows[0].Index.ToString();
-            MessageBox.Show(partsDataGrid.SelectedRows[0].Index.ToString());
+            string itemToDelete = partsDataGrid[partsDataGrid.CurrentCell.ColumnIndex, partsDataGrid.CurrentCell.RowIndex].Value.ToString();
+
+            MessageBox.Show(itemToDelete);
+
+
             //inventory.DeletePart();
+
         }
     }
 }
