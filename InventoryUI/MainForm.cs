@@ -18,27 +18,38 @@ namespace InventoryUI
         public MainForm()
         {
             InitializeComponent();
-
-
-
-            Inhouse newPart = new Inhouse();
-            newPart.partID = 2;
-            newPart.name = "Wrench";
-            newPart.machineID = 4;
-
-            Outsourced outsourcedpart = new Outsourced();
-            outsourcedpart.name = "Filter";
-
+       
             Product newProduct = new Product() { productID = 5, name="Bicycle"};
+
+            #region Sample data for table population
+
+            inventory.AddPart(new Outsourced {
+                partID = inventory.AssignPartID(),
+                name = "Disc Brake",
+                price = 29.99,
+                inStock = 4,
+                min = 2, 
+                max = 10,
+                companyName = "Advanced Braking Co."
+            });
+
+            inventory.AddPart(new Inhouse {
+                partID = inventory.AssignPartID(),
+                name = "Front Light",
+                price = 15.99,
+                inStock = 7,
+                min = 5,
+                max = 15,
+                machineID = 51347
+            });
+
+            //inventory.AddProduct({ });
+            #endregion
             
 
-            inventory.AddPart(newPart);
-            inventory.AddPart(outsourcedpart);
-
-            var bindingList = inventory.getPartsList();
-
             productsDataGrid.DataSource = inventory.getProductList();
-            partsDataGrid.DataSource = bindingList;
+            partsDataGrid.DataSource = inventory.getPartsList();
+            
             
         }
 
@@ -56,11 +67,12 @@ namespace InventoryUI
         private void deletePartButton_Click(object sender, EventArgs e)
         {
             //partsDataGrid.SelectedRows[0].Index.ToString();
+            
             string itemToDelete = partsDataGrid[partsDataGrid.CurrentCell.ColumnIndex, partsDataGrid.CurrentCell.RowIndex].Value.ToString();
+            //Inventory p =
+            //List<Part> toRemove = inventory.getPartsList().
 
-            MessageBox.Show(itemToDelete);
-
-
+            
             //inventory.DeletePart();
 
         }

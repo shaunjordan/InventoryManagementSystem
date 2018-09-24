@@ -10,12 +10,10 @@ namespace InventoryManagementLibrary
     {
         BindingList<Product> Products = new BindingList<Product>();
         BindingList<Part> AllParts = new BindingList<Part>();
-
+        List<int> PartIDs = new List<int>();
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name=""></param>
+        
+        
         public void AddProduct(Product product) {
             Products.Add(product);
         }
@@ -63,5 +61,23 @@ namespace InventoryManagementLibrary
         //public Part LookupPart(int partID) { }
 
         public void UpdatePart(int partID, Part part) { }
+
+        public int AssignPartID()
+        {
+            Random randPartNumber = new Random();
+            int assignedPartNumber = randPartNumber.Next(1000, 99999);
+
+            //foreach (int id in PartIDs)
+            //{
+            //    if (assignedPartNumber == PartIDs.IndexOf(id))
+            //    {
+            //        assignedPartNumber = randPartNumber.Next(1000, 99999);
+            //    }
+            //}
+            
+            PartIDs.Add(assignedPartNumber);
+
+            return assignedPartNumber;
+        }
     }
 }
