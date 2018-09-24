@@ -44,13 +44,9 @@ namespace InventoryUI
             });
 
             //inventory.AddProduct({ });
-            #endregion
-            
-
             productsDataGrid.DataSource = inventory.getProductList();
             partsDataGrid.DataSource = inventory.getPartsList();
-            
-            
+            #endregion
         }
 
         private void exitButton_Click(object sender, EventArgs e)
