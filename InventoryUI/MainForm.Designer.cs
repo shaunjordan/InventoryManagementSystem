@@ -149,6 +149,7 @@
             this.partsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGrid.Size = new System.Drawing.Size(362, 146);
             this.partsDataGrid.TabIndex = 0;
+            
             // 
             // productsGroupBox
             // 

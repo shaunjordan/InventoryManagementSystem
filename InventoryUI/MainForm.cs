@@ -50,9 +50,12 @@ namespace InventoryUI
                 max = 10
                
             });
-
+                        
             partsDataGrid.DataSource = inventory.getPartsList();
             productsDataGrid.DataSource = inventory.getProductList();
+
+            partsDataGrid.Columns[2].DefaultCellStyle.Format = "c";
+            productsDataGrid.Columns[2].DefaultCellStyle.Format = "c";
             #endregion
         }
 
@@ -82,9 +85,31 @@ namespace InventoryUI
 
         private void modifyPartButton_Click(object sender, EventArgs e)
         {
-            var partToModify = (Part)partsDataGrid.CurrentRow.DataBoundItem;
-            ModifyPart modifyPartForm = new ModifyPart(inventory, partToModify);
-            modifyPartForm.Show();
+
+            Outsourced partToModifyOs; //= partsDataGrid.CurrentRow.DataBoundItem;
+            Inhouse partToModifyIh;
+
+            if (partsDataGrid.CurrentRow.DataBoundItem.GetType() == typeof(Outsourced))
+            {
+                partToModifyOs = (Outsourced)partsDataGrid.CurrentRow.DataBoundItem;
+                ModifyPart modifyPartForm = new ModifyPart(inventory, partToModifyOs);
+                modifyPartForm.Show();
+            }
+
+            if (partsDataGrid.CurrentRow.DataBoundItem.GetType() == typeof(Inhouse))
+            {
+                partToModifyIh = (Inhouse)partsDataGrid.CurrentRow.DataBoundItem;
+                ModifyPart modifyPartForm = new ModifyPart(inventory, partToModifyIh);
+                modifyPartForm.Show();
+            }
+
+
+            //if (partsDataGrid.CurrentRow.DataBoundItem == typeof(Outsourced))
+            //{
+            //    MessageBox.Show(partsDataGrid.CurrentRow.DataBoundItem.ToString());
+            //}
+            //ModifyPart modifyPartForm = new ModifyPart(inventory, partToModify);
+            //modifyPartForm.Show();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace InventoryManagementLibrary
         [DisplayName("Part Name")]
         public string name { get; set; }
 
-        [DisplayName("Price/Cost")]
+        [DisplayName("Price/Cost"),]
         public double price { get; set; }
 
         [DisplayName("In Stock")]
