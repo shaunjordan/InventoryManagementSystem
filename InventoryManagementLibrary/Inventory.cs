@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace InventoryManagementLibrary
 {
     public class Inventory
@@ -28,13 +30,9 @@ namespace InventoryManagementLibrary
             return Products;
         }
 
-        public bool RemoveProduct(int productID) {
-
-            bool itemRemoved = false;
-            Products.RemoveAt(1);
-            itemRemoved = true;
-
-            return itemRemoved;
+        public bool RemoveProduct(int productID)
+        {
+            return true;
         }
 
         //public Product LookupProduct(int productID)
@@ -48,20 +46,31 @@ namespace InventoryManagementLibrary
         //    }
         //}
 
-        public void UpdateProudct(int productID, Product product) { }
+        public void UpdateProudct(int productID, Product product)
+        {
+
+        }
 
         public void AddPart(Part part) {
             AllParts.Add(part);
         }
 
-        public bool DeletePart(Part part) {
+        public bool DeletePart(Part part)
+        {
+            AllParts.Remove(part);
             return true;
         }
 
-        //public Part LookupPart(int partID) { }
+        //public Part LookupPart(int partID) 
+        //{ 
 
-        public void UpdatePart(int partID, Part part) { }
+        //}
 
+        public void UpdatePart(int partID, Part part)
+        {
+
+        }
+        
         public int AssignPartID()
         {
             Random randPartNumber = new Random();

@@ -257,6 +257,7 @@
             this.modifySavePartButton.TabIndex = 1;
             this.modifySavePartButton.Text = "Save";
             this.modifySavePartButton.UseVisualStyleBackColor = false;
+            this.modifySavePartButton.Click += new System.EventHandler(this.modifySavePartButton_Click);
             // 
             // ModifyPart
             // 

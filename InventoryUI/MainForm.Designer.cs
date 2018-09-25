@@ -103,6 +103,7 @@
             this.modifyPartButton.TabIndex = 1;
             this.modifyPartButton.Text = "Modify";
             this.modifyPartButton.UseVisualStyleBackColor = false;
+            this.modifyPartButton.Click += new System.EventHandler(this.modifyPartButton_Click);
             // 
             // partsSearchButton
             // 

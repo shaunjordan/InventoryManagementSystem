@@ -19,9 +19,7 @@ namespace InventoryUI
         {
             InitializeComponent();
        
-            Product newProduct = new Product() { productID = 5, name="Bicycle"};
-
-            #region Sample data for table population
+            #region Sample data generation for debugging purposes
 
             inventory.AddPart(new Outsourced {
                 partID = inventory.AssignPartID(),
@@ -43,14 +41,24 @@ namespace InventoryUI
                 machineID = 51347
             });
 
-            //inventory.AddProduct({ });
-            productsDataGrid.DataSource = inventory.getProductList();
+            inventory.AddProduct(new Product {
+                productID = 5,
+                name = "Electric Scooter",
+                inStock = 7, 
+                price = 47.00, //TODO - convert to currency
+                min = 3, 
+                max = 10
+               
+            });
+
             partsDataGrid.DataSource = inventory.getPartsList();
+            productsDataGrid.DataSource = inventory.getProductList();
             #endregion
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            //TODO confirm exit
             Application.Exit();
         }
 
@@ -62,15 +70,21 @@ namespace InventoryUI
 
         private void deletePartButton_Click(object sender, EventArgs e)
         {
-            //partsDataGrid.SelectedRows[0].Index.ToString();
-            
-            string itemToDelete = partsDataGrid[partsDataGrid.CurrentCell.ColumnIndex, partsDataGrid.CurrentCell.RowIndex].Value.ToString();
-            //Inventory p =
-            //List<Part> toRemove = inventory.getPartsList().
+            //TODO - check if selection is null try/catch?
+            //TODO - confirm deletion
+            var partToDelete = (Part)partsDataGrid.CurrentRow.DataBoundItem;
 
-            
-            //inventory.DeletePart();
+            inventory.DeletePart(partToDelete);
 
+            //if (Object.ReferenceEquals(null, partToDelete)) { MessageBox.Show(partToDelete.ToString()); }
+            //partsDataGrid.CurrentRow.DataBoundItem.GetType().ToString();
+        }
+
+        private void modifyPartButton_Click(object sender, EventArgs e)
+        {
+            var partToModify = (Part)partsDataGrid.CurrentRow.DataBoundItem;
+            ModifyPart modifyPartForm = new ModifyPart(inventory, partToModify);
+            modifyPartForm.Show();
         }
     }
 }
