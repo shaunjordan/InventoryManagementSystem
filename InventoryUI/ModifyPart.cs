@@ -47,5 +47,10 @@ namespace InventoryUI
         {
             
         }
+
+        private void modifyCancelAddPartButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

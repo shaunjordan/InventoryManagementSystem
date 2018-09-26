@@ -126,7 +126,7 @@
             this.partInvTextBox.Size = new System.Drawing.Size(284, 42);
             this.partInvTextBox.TabIndex = 9;
             this.partInvTextBox.Text = "Inv";
-            this.partInvTextBox.Leave += new System.EventHandler(this.partInvTextBox_Leave);
+            this.partInvTextBox.TextChanged += new System.EventHandler(this.partInvTextBox_TextChanged);
             // 
             // partNameTextBox
             // 
@@ -267,6 +267,7 @@
             this.cancelAddPartButton.TabIndex = 1;
             this.cancelAddPartButton.Text = "Cancel";
             this.cancelAddPartButton.UseVisualStyleBackColor = false;
+            this.cancelAddPartButton.Click += new System.EventHandler(this.cancelAddPartButton_Click);
             // 
             // savePartButton
             // 

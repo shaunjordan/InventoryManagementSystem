@@ -78,7 +78,7 @@ namespace InventoryUI
             var partToDelete = (Part)partsDataGrid.CurrentRow.DataBoundItem;
 
             inventory.DeletePart(partToDelete);
-
+            
             //if (Object.ReferenceEquals(null, partToDelete)) { MessageBox.Show(partToDelete.ToString()); }
             //partsDataGrid.CurrentRow.DataBoundItem.GetType().ToString();
         }
