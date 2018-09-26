@@ -22,7 +22,7 @@ namespace InventoryUI
             #region Sample data generation for debugging purposes
 
             inventory.AddPart(new Outsourced {
-                partID = inventory.AssignPartID(),
+                partID = 456,
                 name = "Disc Brake",
                 price = 29.99,
                 inStock = 4,
@@ -32,7 +32,7 @@ namespace InventoryUI
             });
 
             inventory.AddPart(new Inhouse {
-                partID = inventory.AssignPartID(),
+                partID = 197,
                 name = "Front Light",
                 price = 15.99,
                 inStock = 7,
@@ -42,10 +42,10 @@ namespace InventoryUI
             });
 
             inventory.AddProduct(new Product {
-                productID = 5,
+                productID = 534,
                 name = "Electric Scooter",
                 inStock = 7, 
-                price = 47.00, //TODO - convert to currency
+                price = 47.00,
                 min = 3, 
                 max = 10
                
@@ -54,8 +54,8 @@ namespace InventoryUI
             partsDataGrid.DataSource = inventory.getPartsList();
             productsDataGrid.DataSource = inventory.getProductList();
 
-            partsDataGrid.Columns[2].DefaultCellStyle.Format = "c";
-            productsDataGrid.Columns[2].DefaultCellStyle.Format = "c";
+            partsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
+            productsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
             #endregion
         }
 
@@ -86,7 +86,7 @@ namespace InventoryUI
         private void modifyPartButton_Click(object sender, EventArgs e)
         {
 
-            Outsourced partToModifyOs; //= partsDataGrid.CurrentRow.DataBoundItem;
+            Outsourced partToModifyOs; 
             Inhouse partToModifyIh;
 
             if (partsDataGrid.CurrentRow.DataBoundItem.GetType() == typeof(Outsourced))

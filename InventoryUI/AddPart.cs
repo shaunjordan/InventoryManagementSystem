@@ -94,17 +94,6 @@ namespace InventoryUI
             partCompanyNameMachineIDTextBox.Text = "Company Name";
         }
         #endregion
-        
-
-        private void partPriceCostTextBox_Leave(object sender, EventArgs e)
-        {
-            //Converts entered number into currency format for display
-            double price;
-            if (double.TryParse(partPriceCostTextBox.Text, out price))
-            {
-                partPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
-            }
-        }
 
         private void partInvTextBox_Leave(object sender, EventArgs e)
         {
@@ -117,5 +106,17 @@ namespace InventoryUI
                 savePartButton.Enabled = false;
             }
         }
+
+        private void partPriceCostTextBox_Leave(object sender, EventArgs e)
+        {
+            //Converts entered number into currency format for display
+            double price;
+            if (double.TryParse(partPriceCostTextBox.Text, out price))
+            {
+                partPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            }
+        }
+
+        
     }
 }

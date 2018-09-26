@@ -25,7 +25,7 @@ namespace InventoryUI
             modifyPartNameTextBox.Text = part.name;
             modifyPartInvTextBox.Text = part.inStock.ToString();
             modifyPartMinTextBox.Text = part.min.ToString();
-            modifyPartMaxTextBox.Text = part.min.ToString();
+            modifyPartMaxTextBox.Text = part.max.ToString();
             modifyPartCompanyName.Text = part.machineID.ToString();
 
         }
@@ -39,7 +39,7 @@ namespace InventoryUI
             modifyPartNameTextBox.Text = part.name;
             modifyPartInvTextBox.Text = part.inStock.ToString();
             modifyPartMinTextBox.Text = part.min.ToString();
-            modifyPartMaxTextBox.Text = part.min.ToString();
+            modifyPartMaxTextBox.Text = part.max.ToString();
             modifyPartCompanyName.Text = part.companyName;
         }
 
