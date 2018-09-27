@@ -14,7 +14,7 @@ namespace InventoryUI
     public partial class AddProduct : Form
     {
         private Inventory inventory;
-        Product product = new Product();
+        BindingList<Part> partSelections = new BindingList<Part>(); 
 
         public AddProduct(Inventory inventoryClass)
         {
@@ -23,12 +23,14 @@ namespace InventoryUI
             
 
             productPartsDataGrid.DataSource = inventory.GetPartsList();
-            assocPartsDataGrid.DataSource = product.GetAssociatedParts();
+            assocPartsDataGrid.DataSource = partSelections;
 
         }
 
         private void saveProductButton_Click(object sender, EventArgs e)
         {
+            //Product product = new Product();
+            //product.AddAssociatedPart((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
             inventory.AddProduct(new Product
             {
                 productID = inventory.AssignID(),
@@ -37,9 +39,14 @@ namespace InventoryUI
                 price = double.Parse(productPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
                 min = Convert.ToInt32(productMinTextBox.Text),
                 max = Convert.ToInt32(productMaxTextBox.Text),
+                AssociatedParts = new BindingList<Part>((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
                 
             });
+            
 
+            
+            
+            
             //TODO - add selected part to associated parts list for the product
 
             this.Close();
@@ -62,8 +69,7 @@ namespace InventoryUI
 
         private void addAssocProductButton_Click(object sender, EventArgs e)
         {
-            product.AddAssociatedPart((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
-            //productPartsDataGrid.CurrentRow.DataBoundItem
+            partSelections.Add((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace InventoryManagementLibrary
         //    }
         //}
 
-        public void UpdateProudct(int productID, Product product)
+        public void UpdateProduct(int productID, Product product)
         {
 
         }
