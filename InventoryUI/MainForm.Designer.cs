@@ -40,10 +40,10 @@
             this.deleteProductButton = new System.Windows.Forms.Button();
             this.modifyProductButton = new System.Windows.Forms.Button();
             this.productSearchButton = new System.Windows.Forms.Button();
-            this.productsDataGrid = new System.Windows.Forms.DataGridView();
             this.addProductButton = new System.Windows.Forms.Button();
             this.mainFormLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
+            this.productsDataGrid = new System.Windows.Forms.DataGridView();
             this.partsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGrid)).BeginInit();
             this.productsGroupBox.SuspendLayout();
@@ -62,7 +62,7 @@
             this.partsGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsGroupBox.Location = new System.Drawing.Point(12, 94);
             this.partsGroupBox.Name = "partsGroupBox";
-            this.partsGroupBox.Size = new System.Drawing.Size(375, 260);
+            this.partsGroupBox.Size = new System.Drawing.Size(511, 260);
             this.partsGroupBox.TabIndex = 0;
             this.partsGroupBox.TabStop = false;
             this.partsGroupBox.Text = "Parts";
@@ -82,7 +82,7 @@
             this.deletePartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletePartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.deletePartButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.deletePartButton.Location = new System.Drawing.Point(299, 204);
+            this.deletePartButton.Location = new System.Drawing.Point(410, 204);
             this.deletePartButton.Name = "deletePartButton";
             this.deletePartButton.Size = new System.Drawing.Size(70, 33);
             this.deletePartButton.TabIndex = 1;
@@ -97,7 +97,7 @@
             this.modifyPartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyPartButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.modifyPartButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifyPartButton.Location = new System.Drawing.Point(223, 204);
+            this.modifyPartButton.Location = new System.Drawing.Point(334, 204);
             this.modifyPartButton.Name = "modifyPartButton";
             this.modifyPartButton.Size = new System.Drawing.Size(70, 33);
             this.modifyPartButton.TabIndex = 1;
@@ -126,7 +126,7 @@
             this.addPartsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPartsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.addPartsButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.addPartsButton.Location = new System.Drawing.Point(147, 204);
+            this.addPartsButton.Location = new System.Drawing.Point(258, 204);
             this.addPartsButton.Name = "addPartsButton";
             this.addPartsButton.Size = new System.Drawing.Size(70, 33);
             this.addPartsButton.TabIndex = 1;
@@ -142,14 +142,13 @@
             this.partsDataGrid.AllowUserToResizeRows = false;
             this.partsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.partsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsDataGrid.Location = new System.Drawing.Point(7, 52);
+            this.partsDataGrid.Location = new System.Drawing.Point(30, 52);
             this.partsDataGrid.Name = "partsDataGrid";
             this.partsDataGrid.ReadOnly = true;
             this.partsDataGrid.RowHeadersVisible = false;
             this.partsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.partsDataGrid.Size = new System.Drawing.Size(362, 146);
+            this.partsDataGrid.Size = new System.Drawing.Size(450, 146);
             this.partsDataGrid.TabIndex = 0;
-            
             // 
             // productsGroupBox
             // 
@@ -160,9 +159,9 @@
             this.productsGroupBox.Controls.Add(this.productsDataGrid);
             this.productsGroupBox.Controls.Add(this.addProductButton);
             this.productsGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productsGroupBox.Location = new System.Drawing.Point(413, 94);
+            this.productsGroupBox.Location = new System.Drawing.Point(529, 94);
             this.productsGroupBox.Name = "productsGroupBox";
-            this.productsGroupBox.Size = new System.Drawing.Size(375, 260);
+            this.productsGroupBox.Size = new System.Drawing.Size(493, 260);
             this.productsGroupBox.TabIndex = 0;
             this.productsGroupBox.TabStop = false;
             this.productsGroupBox.Text = "Products";
@@ -182,7 +181,7 @@
             this.deleteProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.deleteProductButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.deleteProductButton.Location = new System.Drawing.Point(299, 204);
+            this.deleteProductButton.Location = new System.Drawing.Point(401, 204);
             this.deleteProductButton.Name = "deleteProductButton";
             this.deleteProductButton.Size = new System.Drawing.Size(70, 33);
             this.deleteProductButton.TabIndex = 1;
@@ -196,12 +195,13 @@
             this.modifyProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.modifyProductButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifyProductButton.Location = new System.Drawing.Point(223, 204);
+            this.modifyProductButton.Location = new System.Drawing.Point(325, 204);
             this.modifyProductButton.Name = "modifyProductButton";
             this.modifyProductButton.Size = new System.Drawing.Size(70, 33);
             this.modifyProductButton.TabIndex = 1;
             this.modifyProductButton.Text = "Modify";
             this.modifyProductButton.UseVisualStyleBackColor = false;
+            this.modifyProductButton.Click += new System.EventHandler(this.modifyProductButton_Click);
             // 
             // productSearchButton
             // 
@@ -217,22 +217,6 @@
             this.productSearchButton.Text = "Search";
             this.productSearchButton.UseVisualStyleBackColor = false;
             // 
-            // productsDataGrid
-            // 
-            this.productsDataGrid.AllowUserToAddRows = false;
-            this.productsDataGrid.AllowUserToDeleteRows = false;
-            this.productsDataGrid.AllowUserToResizeColumns = false;
-            this.productsDataGrid.AllowUserToResizeRows = false;
-            this.productsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGrid.Location = new System.Drawing.Point(7, 52);
-            this.productsDataGrid.Name = "productsDataGrid";
-            this.productsDataGrid.ReadOnly = true;
-            this.productsDataGrid.RowHeadersVisible = false;
-            this.productsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGrid.Size = new System.Drawing.Size(362, 146);
-            this.productsDataGrid.TabIndex = 0;
-            // 
             // addProductButton
             // 
             this.addProductButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -240,12 +224,13 @@
             this.addProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.addProductButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.addProductButton.Location = new System.Drawing.Point(147, 204);
+            this.addProductButton.Location = new System.Drawing.Point(249, 204);
             this.addProductButton.Name = "addProductButton";
             this.addProductButton.Size = new System.Drawing.Size(70, 33);
             this.addProductButton.TabIndex = 1;
             this.addProductButton.Text = "Add";
             this.addProductButton.UseVisualStyleBackColor = false;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // mainFormLabel
             // 
@@ -265,7 +250,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.exitButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.exitButton.Location = new System.Drawing.Point(678, 383);
+            this.exitButton.Location = new System.Drawing.Point(930, 388);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(70, 33);
             this.exitButton.TabIndex = 1;
@@ -273,11 +258,29 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // productsDataGrid
+            // 
+            this.productsDataGrid.AllowUserToAddRows = false;
+            this.productsDataGrid.AllowUserToDeleteRows = false;
+            this.productsDataGrid.AllowUserToResizeColumns = false;
+            this.productsDataGrid.AllowUserToResizeRows = false;
+            this.productsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.productsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.productsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDataGrid.Location = new System.Drawing.Point(21, 52);
+            this.productsDataGrid.Name = "productsDataGrid";
+            this.productsDataGrid.ReadOnly = true;
+            this.productsDataGrid.RowHeadersVisible = false;
+            this.productsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsDataGrid.Size = new System.Drawing.Size(450, 146);
+            this.productsDataGrid.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1034, 457);
             this.Controls.Add(this.mainFormLabel);
             this.Controls.Add(this.productsGroupBox);
             this.Controls.Add(this.partsGroupBox);

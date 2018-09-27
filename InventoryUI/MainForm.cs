@@ -51,8 +51,8 @@ namespace InventoryUI
                
             });
                         
-            partsDataGrid.DataSource = inventory.getPartsList();
-            productsDataGrid.DataSource = inventory.getProductList();
+            partsDataGrid.DataSource = inventory.GetPartsList();
+            productsDataGrid.DataSource = inventory.GetProductList();
 
             partsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
             productsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
@@ -102,14 +102,20 @@ namespace InventoryUI
                 ModifyPart modifyPartForm = new ModifyPart(inventory, partToModifyIh);
                 modifyPartForm.Show();
             }
+        }
 
+        private void addProductButton_Click(object sender, EventArgs e)
+        {
+            AddProduct addProductForm = new AddProduct(inventory);
+            addProductForm.Show();
+        }
 
-            //if (partsDataGrid.CurrentRow.DataBoundItem == typeof(Outsourced))
-            //{
-            //    MessageBox.Show(partsDataGrid.CurrentRow.DataBoundItem.ToString());
-            //}
-            //ModifyPart modifyPartForm = new ModifyPart(inventory, partToModify);
-            //modifyPartForm.Show();
+        private void modifyProductButton_Click(object sender, EventArgs e)
+        {
+            Product productToModify = (Product)productsDataGrid.CurrentRow.DataBoundItem;
+
+            ModifyProduct modifyProductForm = new ModifyProduct(inventory, productToModify);
+            modifyProductForm.Show();
         }
     }
 }

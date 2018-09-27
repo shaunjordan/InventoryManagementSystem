@@ -29,7 +29,7 @@ namespace InventoryUI
 
                     inventory.AddPart(new Inhouse
                     {
-                        partID = inventory.AssignPartID(),
+                        partID = inventory.AssignID(),
                         name = partNameTextBox.Text,
                         price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
                         inStock = Convert.ToInt32(partInvTextBox.Text),
@@ -43,7 +43,7 @@ namespace InventoryUI
             {
                 inventory.AddPart(new Outsourced
                 {
-                    partID = inventory.AssignPartID(),
+                    partID = inventory.AssignID(),
                     name = partNameTextBox.Text,
                     price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
                     inStock = Convert.ToInt32(partInvTextBox.Text),
@@ -82,15 +82,15 @@ namespace InventoryUI
 
         private void partInvTextBox_TextChanged(object sender, EventArgs e)
         {
-            //int invVal;
-            //partInvTextBox.BackColor = Color.White;
-            //savePartButton.Enabled = true;
-            //if (!int.TryParse(partInvTextBox.Text, out invVal))
-            //{
-            //    partInvTextBox.BackColor = Color.Red;
-            //    savePartButton.Enabled = false;
-            //}
-            
+            int invVal;
+            partInvTextBox.BackColor = Color.White;
+            savePartButton.Enabled = true;
+            if (!int.TryParse(partInvTextBox.Text, out invVal))
+            {
+                partInvTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
+
         }
 
         private void cancelAddPartButton_Click(object sender, EventArgs e)

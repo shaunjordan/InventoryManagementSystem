@@ -12,20 +12,17 @@ namespace InventoryManagementLibrary
     {
         BindingList<Product> Products = new BindingList<Product>();
         BindingList<Part> AllParts = new BindingList<Part>();
-        List<int> PartIDs = new List<int>();
-        
-        
-        
+
         public void AddProduct(Product product) {
             Products.Add(product);
         }
 
-        public BindingList<Part> getPartsList()
+        public BindingList<Part> GetPartsList()
         {
             return AllParts;
         }
 
-        public BindingList<Product> getProductList()
+        public BindingList<Product> GetProductList()
         {
             return Products;
         }
@@ -71,20 +68,10 @@ namespace InventoryManagementLibrary
 
         }
         
-        public int AssignPartID()
+        public int AssignID()
         {
             Random randPartNumber = new Random();
             int assignedPartNumber = randPartNumber.Next(1000, 99999);
-
-            //foreach (int id in PartIDs)
-            //{
-            //    if (assignedPartNumber == PartIDs.IndexOf(id))
-            //    {
-            //        assignedPartNumber = randPartNumber.Next(1000, 99999);
-            //    }
-            //}
-            
-            PartIDs.Add(assignedPartNumber);
 
             return assignedPartNumber;
         }
