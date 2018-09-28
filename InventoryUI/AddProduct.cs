@@ -14,42 +14,38 @@ namespace InventoryUI
     public partial class AddProduct : Form
     {
         private Inventory inventory;
-        BindingList<Part> partSelections = new BindingList<Part>(); 
+        BindingList<Part> partSelections = new BindingList<Part>();
 
         public AddProduct(Inventory inventoryClass)
         {
             InitializeComponent();
             inventory = inventoryClass;
-            
 
+            //Datasource is the existing list of parts
             productPartsDataGrid.DataSource = inventory.GetPartsList();
-            assocPartsDataGrid.DataSource = partSelections;
 
+            //Parts selected display in datagrid and are added to the Product's
+            //AssociatedParts list
+            assocPartsDataGrid.DataSource = partSelections;
         }
 
         private void saveProductButton_Click(object sender, EventArgs e)
         {
-            //Product product = new Product();
-            //product.AddAssociatedPart((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
-            inventory.AddProduct(new Product
-            {
-                productID = inventory.AssignID(),
-                name = productNameTextBox.Text,
-                inStock = Convert.ToInt32(productInvTextBox.Text),
-                price = double.Parse(productPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
-                min = Convert.ToInt32(productMinTextBox.Text),
-                max = Convert.ToInt32(productMaxTextBox.Text),
-                AssociatedParts = new BindingList<Part>((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
-                
-            });
-            
-
-            
-            
-            
-            //TODO - add selected part to associated parts list for the product
-
-            this.Close();
+            Product newProduct = new Product
+                {
+                    productID = inventory.AssignID(),
+                    name = productNameTextBox.Text,
+                    inStock = Convert.ToInt32(productInvTextBox.Text),
+                    price = double.Parse(productPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
+                    min = Convert.ToInt32(productMinTextBox.Text),
+                    max = Convert.ToInt32(productMaxTextBox.Text)
+                };
+                foreach (Part part in partSelections)
+                {
+                    newProduct.AddAssociatedPart(part);
+                }
+                inventory.AddProduct(newProduct);
+                this.Close();
          }
 
         private void productPriceCostTextBox_Leave(object sender, EventArgs e)
@@ -70,6 +66,8 @@ namespace InventoryUI
         private void addAssocProductButton_Click(object sender, EventArgs e)
         {
             partSelections.Add((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
-        }
-    }
+
+        }  
+     }
 }
+

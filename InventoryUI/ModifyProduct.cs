@@ -29,5 +29,10 @@ namespace InventoryUI
             modifyProductPartsDataGrid.DataSource = inventory.GetPartsList();
             modifyAssocPartsDataGrid.DataSource = product.GetAssociatedParts();
         }
+
+        private void modifyCancelProductButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

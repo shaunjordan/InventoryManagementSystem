@@ -41,25 +41,26 @@ namespace InventoryUI
                 machineID = 51347
             });
 
-            Inhouse n = new Inhouse();
-            n.partID = 76;
-            n.name = "Rambotuner";
+            //Inhouse n = new Inhouse();
+            //n.partID = 76;
+            //n.name = "Rambotuner";
 
-            //inventory.AddProduct(new Product {
-            //    productID = 534,
-            //    name = "Electric Scooter",
-            //    inStock = 7, 
-            //    price = 47.00,
-            //    min = 3, 
-            //    max = 10
+            inventory.AddProduct(new Product
+            {
+                productID = 534,
+                name = "Electric Scooter",
+                inStock = 7,
+                price = 47.00,
+                min = 3,
+                max = 10            
 
-            //});
-            Product product = new Product();
-            product.name = "Hifi Wifi";
-            product.AddAssociatedPart(n);
+            });
+            //Product product = new Product();
+            //product.name = "Hifi Wifi";
+            //product.AddAssociatedPart(n);
 
-            inventory.AddProduct(product);
-                        
+            //inventory.AddProduct(product);
+
             partsDataGrid.DataSource = inventory.GetPartsList();
             productsDataGrid.DataSource = inventory.GetProductList();
 
@@ -125,6 +126,12 @@ namespace InventoryUI
 
             ModifyProduct modifyProductForm = new ModifyProduct(inventory, productToModify);
             modifyProductForm.Show();
+        }
+
+        private void deleteProductButton_Click(object sender, EventArgs e)
+        {
+            var productToDelete = (Product)productsDataGrid.CurrentRow.DataBoundItem;
+            inventory.RemoveProduct(productToDelete);
         }
     }
 }

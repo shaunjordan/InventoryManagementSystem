@@ -47,7 +47,14 @@ namespace InventoryUI
 
         private void modifySavePartButton_Click(object sender, EventArgs e)
         {
-            
+            //TODO - cleanup this code and add the rest of the part items for update. including data validation
+            //TODO - refresh the datagrid
+            Part partToEdit = inventory.GetPartsList().FirstOrDefault(editPart => editPart.partID == Convert.ToInt32(modifyPartIDTextBox.Text));
+            partToEdit.name = modifyPartNameTextBox.Text;
+
+            inventory.UpdatePart(partToEdit.partID, partToEdit);
+
+            this.Close();
         }
 
         private void modifyCancelAddPartButton_Click(object sender, EventArgs e)

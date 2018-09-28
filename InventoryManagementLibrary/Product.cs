@@ -9,7 +9,7 @@ namespace InventoryManagementLibrary
 {
     public class Product : Inventory
     {
-        public BindingList<Part> AssociatedParts { get; set; }
+        public BindingList<Part> AssociatedParts = new BindingList<Part>();
        
         
         [DisplayName("Product ID")]
@@ -30,13 +30,10 @@ namespace InventoryManagementLibrary
         [Browsable(false)]
         public int max { get; set; }
 
-        
+
         public void AddAssociatedPart(Part part)
         {
-            AssociatedParts = new BindingList<Part>
-            {
-                part
-            };
+            AssociatedParts.Add(part);
         }
 
         public BindingList<Part> GetAssociatedParts()

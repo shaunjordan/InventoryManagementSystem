@@ -40,10 +40,10 @@
             this.deleteProductButton = new System.Windows.Forms.Button();
             this.modifyProductButton = new System.Windows.Forms.Button();
             this.productSearchButton = new System.Windows.Forms.Button();
+            this.productsDataGrid = new System.Windows.Forms.DataGridView();
             this.addProductButton = new System.Windows.Forms.Button();
             this.mainFormLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
-            this.productsDataGrid = new System.Windows.Forms.DataGridView();
             this.partsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGrid)).BeginInit();
             this.productsGroupBox.SuspendLayout();
@@ -70,7 +70,7 @@
             // partSearchTextBox
             // 
             this.partSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.partSearchTextBox.Location = new System.Drawing.Point(223, 21);
+            this.partSearchTextBox.Location = new System.Drawing.Point(334, 20);
             this.partSearchTextBox.Name = "partSearchTextBox";
             this.partSearchTextBox.Size = new System.Drawing.Size(146, 25);
             this.partSearchTextBox.TabIndex = 3;
@@ -112,7 +112,7 @@
             this.partsSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.partsSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.partsSearchButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.partsSearchButton.Location = new System.Drawing.Point(159, 21);
+            this.partsSearchButton.Location = new System.Drawing.Point(270, 20);
             this.partsSearchButton.Name = "partsSearchButton";
             this.partsSearchButton.Size = new System.Drawing.Size(58, 25);
             this.partsSearchButton.TabIndex = 1;
@@ -169,7 +169,7 @@
             // productSearchTextBox
             // 
             this.productSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.productSearchTextBox.Location = new System.Drawing.Point(223, 19);
+            this.productSearchTextBox.Location = new System.Drawing.Point(325, 20);
             this.productSearchTextBox.Name = "productSearchTextBox";
             this.productSearchTextBox.Size = new System.Drawing.Size(146, 25);
             this.productSearchTextBox.TabIndex = 3;
@@ -187,6 +187,7 @@
             this.deleteProductButton.TabIndex = 1;
             this.deleteProductButton.Text = "Delete";
             this.deleteProductButton.UseVisualStyleBackColor = false;
+            this.deleteProductButton.Click += new System.EventHandler(this.deleteProductButton_Click);
             // 
             // modifyProductButton
             // 
@@ -210,12 +211,29 @@
             this.productSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.productSearchButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.productSearchButton.Location = new System.Drawing.Point(159, 19);
+            this.productSearchButton.Location = new System.Drawing.Point(261, 20);
             this.productSearchButton.Name = "productSearchButton";
             this.productSearchButton.Size = new System.Drawing.Size(58, 25);
             this.productSearchButton.TabIndex = 1;
             this.productSearchButton.Text = "Search";
             this.productSearchButton.UseVisualStyleBackColor = false;
+            // 
+            // productsDataGrid
+            // 
+            this.productsDataGrid.AllowUserToAddRows = false;
+            this.productsDataGrid.AllowUserToDeleteRows = false;
+            this.productsDataGrid.AllowUserToResizeColumns = false;
+            this.productsDataGrid.AllowUserToResizeRows = false;
+            this.productsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.productsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.productsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productsDataGrid.Location = new System.Drawing.Point(21, 52);
+            this.productsDataGrid.Name = "productsDataGrid";
+            this.productsDataGrid.ReadOnly = true;
+            this.productsDataGrid.RowHeadersVisible = false;
+            this.productsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productsDataGrid.Size = new System.Drawing.Size(450, 146);
+            this.productsDataGrid.TabIndex = 0;
             // 
             // addProductButton
             // 
@@ -257,23 +275,6 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // productsDataGrid
-            // 
-            this.productsDataGrid.AllowUserToAddRows = false;
-            this.productsDataGrid.AllowUserToDeleteRows = false;
-            this.productsDataGrid.AllowUserToResizeColumns = false;
-            this.productsDataGrid.AllowUserToResizeRows = false;
-            this.productsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.productsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGrid.Location = new System.Drawing.Point(21, 52);
-            this.productsDataGrid.Name = "productsDataGrid";
-            this.productsDataGrid.ReadOnly = true;
-            this.productsDataGrid.RowHeadersVisible = false;
-            this.productsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productsDataGrid.Size = new System.Drawing.Size(450, 146);
-            this.productsDataGrid.TabIndex = 0;
             // 
             // MainForm
             // 

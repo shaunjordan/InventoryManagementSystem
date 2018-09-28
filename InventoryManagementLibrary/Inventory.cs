@@ -27,8 +27,9 @@ namespace InventoryManagementLibrary
             return Products;
         }
 
-        public bool RemoveProduct(int productID)
+        public bool RemoveProduct(Product product)
         {
+            Products.Remove(product);
             return true;
         }
 
@@ -65,7 +66,8 @@ namespace InventoryManagementLibrary
 
         public void UpdatePart(int partID, Part part)
         {
-
+            var updatePart = AllParts.FirstOrDefault(obj => obj.partID == partID);
+            updatePart = part;
         }
         
         public int AssignID()
