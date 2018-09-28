@@ -59,17 +59,17 @@ namespace InventoryManagementLibrary
             return true;
         }
 
-        //public Part LookupPart(int partID) 
-        //{ 
-
+        //public Part LookupPart(int searchVal)
+        //{
+        //    AllParts.SingleOrDefault
         //}
 
-        public void UpdatePart(int partID, Part part)
+        public void UpdatePart(int partIndex, Part part)
         {
-            var updatePart = AllParts.FirstOrDefault(obj => obj.partID == partID);
-            updatePart = part;
+            AllParts.RemoveAt(partIndex);
+            AllParts.Insert(partIndex, part);
         }
-        
+
         public int AssignID()
         {
             Random randPartNumber = new Random();

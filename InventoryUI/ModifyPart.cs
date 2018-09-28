@@ -27,8 +27,9 @@ namespace InventoryUI
             modifyPartPriceCostTextBox.Text = part.price.ToString("C", new System.Globalization.CultureInfo("en-US"));
             modifyPartMinTextBox.Text = part.min.ToString();
             modifyPartMaxTextBox.Text = part.max.ToString();
-            modifyPartCompanyName.Text = part.machineID.ToString();
-
+            modifyPartCompanyOrMachine.Text = part.machineID.ToString();
+            modifyPartMachineOrCompanyLabel.Text = "Machine ID";
+            modifyInhouseRadioButton.Checked = true;
         }
 
         public ModifyPart(Inventory inventoryClass, Outsourced part)
@@ -42,24 +43,71 @@ namespace InventoryUI
             modifyPartPriceCostTextBox.Text = part.price.ToString("C", new System.Globalization.CultureInfo("en-US"));
             modifyPartMinTextBox.Text = part.min.ToString();
             modifyPartMaxTextBox.Text = part.max.ToString();
-            modifyPartCompanyName.Text = part.companyName;
+            modifyPartCompanyOrMachine.Text = part.companyName;
+            modifyPartMachineOrCompanyLabel.Text = "Company Name";
+            modifyOutsourcedRadioButton.Checked = true;
         }
 
         private void modifySavePartButton_Click(object sender, EventArgs e)
         {
             //TODO - cleanup this code and add the rest of the part items for update. including data validation
-            //TODO - refresh the datagrid
-            Part partToEdit = inventory.GetPartsList().FirstOrDefault(editPart => editPart.partID == Convert.ToInt32(modifyPartIDTextBox.Text));
-            partToEdit.name = modifyPartNameTextBox.Text;
+            
+            var partToEdit = inventory.GetPartsList().FirstOrDefault(editPart => editPart.partID == Convert.ToInt32(modifyPartIDTextBox.Text));
+            int partIndex = inventory.GetPartsList().IndexOf(partToEdit);
 
-            inventory.UpdatePart(partToEdit.partID, partToEdit);
+            if (modifyInhouseRadioButton.Checked)
+            {
+                Inhouse modIHPart = new Inhouse();
+                modIHPart.partID = Convert.ToInt32(modifyPartIDTextBox.Text);
+                modIHPart.name = modifyPartNameTextBox.Text;
+                modIHPart.inStock = Convert.ToInt32(modifyPartInvTextBox.Text);
+                modIHPart.price = double.Parse(modifyPartPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency);
+                modIHPart.min = Convert.ToInt32(modifyPartMinTextBox.Text);
+                modIHPart.max = Convert.ToInt32(modifyPartMaxTextBox.Text);
+                modIHPart.machineID = Convert.ToInt32(modifyPartCompanyOrMachine.Text);
 
+                inventory.UpdatePart(partIndex, modIHPart);
+            }
+
+            if (modifyOutsourcedRadioButton.Checked)
+            {
+                Outsourced modOsPart = new Outsourced();
+                modOsPart.partID = Convert.ToInt32(modifyPartIDTextBox.Text);
+                modOsPart.name = modifyPartNameTextBox.Text;
+                modOsPart.inStock = Convert.ToInt32(modifyPartInvTextBox.Text);
+                modOsPart.price = double.Parse(modifyPartPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency);
+                modOsPart.min = Convert.ToInt32(modifyPartMinTextBox.Text);
+                modOsPart.max = Convert.ToInt32(modifyPartMaxTextBox.Text);
+                modOsPart.companyName = modifyPartCompanyOrMachine.Text;
+
+                inventory.UpdatePart(partIndex, modOsPart);
+            }
+     
             this.Close();
         }
 
         private void modifyCancelAddPartButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void modifyInhouseRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            modifyPartMachineOrCompanyLabel.Text = "Machine ID";
+        }
+
+        private void modifyOutsourcedRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            modifyPartMachineOrCompanyLabel.Text = "Company Name";
+        }
+
+        private void modifyPartPriceCostTextBox_Leave(object sender, EventArgs e)
+        {
+            double price;
+            if (double.TryParse(modifyPartPriceCostTextBox.Text, out price))
+            {
+                modifyPartPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            }
         }
     }
 }

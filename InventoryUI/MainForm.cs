@@ -14,7 +14,10 @@ namespace InventoryUI
     public partial class MainForm : Form
     {
         Inventory inventory = new Inventory();
-        
+
+        BindingSource partListSource = new BindingSource();
+        BindingSource productListSource = new BindingSource();
+
         public MainForm()
         {
             InitializeComponent();
@@ -60,12 +63,18 @@ namespace InventoryUI
             //product.AddAssociatedPart(n);
 
             //inventory.AddProduct(product);
-
-            partsDataGrid.DataSource = inventory.GetPartsList();
-            productsDataGrid.DataSource = inventory.GetProductList();
+            
+            partListSource.DataSource = inventory.GetPartsList();
+            partsDataGrid.DataSource = partListSource;
+        
+            productListSource.DataSource = inventory.GetProductList();
+            productsDataGrid.DataSource = productListSource;
 
             partsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
+            
             productsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
+            productsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //productsDataGrid.Columns[3].MinimumWidth = "*";
             #endregion
         }
 
@@ -132,6 +141,34 @@ namespace InventoryUI
         {
             var productToDelete = (Product)productsDataGrid.CurrentRow.DataBoundItem;
             inventory.RemoveProduct(productToDelete);
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            inventory.GetPartsList();
+            inventory.GetProductList();
+
+            partListSource.ResetBindings(false);
+            productListSource.ResetBindings(false);
+        }
+
+        private void partsSearchButton_Click(object sender, EventArgs e)
+        {
+            //pass search value to partlookup
+            //part lookup loops through AllParts<> and returns a part
+            //if an item in the datagrid matches the returned part, the line is highlighted
+
+            //select row index of data grid matching partlookup results
+
+            //if search val == string
+            //search the BindingList for first occurance of the string
+            //if search val == int (part ID)
+            //search the BindingListof the partID
+
+            
+            
+
+            //inventory.LookupPart();
         }
     }
 }

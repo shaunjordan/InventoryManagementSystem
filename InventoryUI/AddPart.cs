@@ -31,8 +31,8 @@ namespace InventoryUI
                     {
                         partID = inventory.AssignID(),
                         name = partNameTextBox.Text,
-                        price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
                         inStock = Convert.ToInt32(partInvTextBox.Text),
+                        price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
                         min = Convert.ToInt32(partMinTextBox.Text),
                         max = Convert.ToInt32(partMaxTextBox.Text),
                         machineID = Convert.ToInt32(partCompanyNameMachineIDTextBox.Text)
