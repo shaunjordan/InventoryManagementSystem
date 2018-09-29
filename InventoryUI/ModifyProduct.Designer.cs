@@ -174,6 +174,7 @@
             this.modifyAddAssocProductButton.TabIndex = 51;
             this.modifyAddAssocProductButton.Text = "Add";
             this.modifyAddAssocProductButton.UseVisualStyleBackColor = false;
+            this.modifyAddAssocProductButton.Click += new System.EventHandler(this.modifyAddAssocProductButton_Click);
             // 
             // modifyProductMinTextBox
             // 

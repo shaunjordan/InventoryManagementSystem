@@ -59,10 +59,11 @@ namespace InventoryManagementLibrary
             return true;
         }
 
-        //public Part LookupPart(int searchVal)
-        //{
-        //    AllParts.SingleOrDefault
-        //}
+        public Part LookupPart(int searchVal)
+        {
+            Part searchedPart = AllParts.SingleOrDefault(x => x.partID == searchVal);
+            return searchedPart;
+        }
 
         public void UpdatePart(int partIndex, Part part)
         {

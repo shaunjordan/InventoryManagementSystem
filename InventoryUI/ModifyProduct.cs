@@ -13,6 +13,7 @@ namespace InventoryUI
 {
     public partial class ModifyProduct : Form
     {
+        //TODO - set up modifyProduct 
         Inventory inventory;
         public ModifyProduct(Inventory inventoryClass, Product product)
         {
@@ -32,7 +33,13 @@ namespace InventoryUI
 
         private void modifyCancelProductButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Are you sure you want to cancel the edit?");
             this.Close();
+        }
+
+        private void modifyAddAssocProductButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

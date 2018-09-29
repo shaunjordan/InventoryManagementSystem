@@ -154,21 +154,26 @@ namespace InventoryUI
 
         private void partsSearchButton_Click(object sender, EventArgs e)
         {
-            //pass search value to partlookup
-            //part lookup loops through AllParts<> and returns a part
-            //if an item in the datagrid matches the returned part, the line is highlighted
+            partsDataGrid.CurrentRow.Selected = false;
 
-            //select row index of data grid matching partlookup results
+            int rowIndex = -1;
+            Part searchedPart = inventory.LookupPart(Convert.ToInt32(partSearchTextBox.Text));
 
-            //if search val == string
-            //search the BindingList for first occurance of the string
-            //if search val == int (part ID)
-            //search the BindingListof the partID
+            foreach (DataGridViewRow row in partsDataGrid.Rows)
+            {
+                if (row.DataBoundItem.Equals(searchedPart))
+                {
+                    rowIndex = row.Index;
+                    
+                    //search is selecting two rows when searching for the second item
+                    partsDataGrid.Rows[rowIndex].Selected = false;
+                    partsDataGrid.Rows[rowIndex].Selected = true;
+
+                    break;
+                }
+            }
 
             
-            
-
-            //inventory.LookupPart();
         }
     }
 }
