@@ -92,6 +92,7 @@
             this.modifySaveProductButton.TabIndex = 55;
             this.modifySaveProductButton.Text = "Save";
             this.modifySaveProductButton.UseVisualStyleBackColor = false;
+            this.modifySaveProductButton.Click += new System.EventHandler(this.modifySaveProductButton_Click);
             // 
             // modifyAssocPartsDataGrid
             // 
@@ -122,6 +123,7 @@
             this.modifyDeleteAssocPart.TabIndex = 54;
             this.modifyDeleteAssocPart.Text = "Delete";
             this.modifyDeleteAssocPart.UseVisualStyleBackColor = false;
+            this.modifyDeleteAssocPart.Click += new System.EventHandler(this.modifyDeleteAssocPart_Click);
             // 
             // modifyAssocPartSearchTextBox
             // 
@@ -202,6 +204,7 @@
             this.modifyProductPriceCostTextBox.Size = new System.Drawing.Size(144, 25);
             this.modifyProductPriceCostTextBox.TabIndex = 44;
             this.modifyProductPriceCostTextBox.Text = "Price";
+            this.modifyProductPriceCostTextBox.Leave += new System.EventHandler(this.modifyProductPriceCostTextBox_Leave);
             // 
             // modifyProductInvTextBox
             // 

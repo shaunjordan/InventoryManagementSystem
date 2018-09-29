@@ -80,8 +80,10 @@ namespace InventoryUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //TODO confirm exit
-            Application.Exit();
+            if (MessageBox.Show("Are you sure you want to quit?", "Confirm Exit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void addPartsButton_Click(object sender, EventArgs e)
@@ -93,10 +95,13 @@ namespace InventoryUI
         private void deletePartButton_Click(object sender, EventArgs e)
         {
             //TODO - check if selection is null try/catch?
-            //TODO - confirm deletion
+            
             var partToDelete = (Part)partsDataGrid.CurrentRow.DataBoundItem;
-
-            inventory.DeletePart(partToDelete);
+                     
+            if (MessageBox.Show("Are you sure you want to delete the part?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                inventory.DeletePart(partToDelete);
+            }
             
             //if (Object.ReferenceEquals(null, partToDelete)) { MessageBox.Show(partToDelete.ToString()); }
             //partsDataGrid.CurrentRow.DataBoundItem.GetType().ToString();
@@ -140,7 +145,11 @@ namespace InventoryUI
         private void deleteProductButton_Click(object sender, EventArgs e)
         {
             var productToDelete = (Product)productsDataGrid.CurrentRow.DataBoundItem;
-            inventory.RemoveProduct(productToDelete);
+            
+            if (MessageBox.Show("Are you sure you want to delete the part?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                inventory.RemoveProduct(productToDelete);
+            }
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
@@ -157,6 +166,7 @@ namespace InventoryUI
             partsDataGrid.CurrentRow.Selected = false;
 
             int rowIndex = -1;
+            //TODO - overload to take a string
             Part searchedPart = inventory.LookupPart(Convert.ToInt32(partSearchTextBox.Text));
 
             foreach (DataGridViewRow row in partsDataGrid.Rows)

@@ -44,9 +44,10 @@ namespace InventoryManagementLibrary
         //    }
         //}
 
-        public void UpdateProduct(int productID, Product product)
+        public void UpdateProduct(int productIndex, Product product)
         {
-
+            Products.RemoveAt(productIndex);
+            Products.Insert(productIndex, product);
         }
 
         public void AddPart(Part part) {

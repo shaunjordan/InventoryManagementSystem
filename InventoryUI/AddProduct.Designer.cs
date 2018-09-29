@@ -258,6 +258,7 @@
             this.deleteAssocPart.TabIndex = 33;
             this.deleteAssocPart.Text = "Delete";
             this.deleteAssocPart.UseVisualStyleBackColor = false;
+            this.deleteAssocPart.Click += new System.EventHandler(this.deleteAssocPart_Click);
             // 
             // saveProductButton
             // 

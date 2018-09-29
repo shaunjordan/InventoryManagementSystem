@@ -67,7 +67,14 @@ namespace InventoryUI
         {
             partSelections.Add((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
 
-        }  
-     }
+        }
+
+        private void deleteAssocPart_Click(object sender, EventArgs e)
+        {
+            //TODO - investigate deletion issue
+            Part selectedPart = (Part)productPartsDataGrid.CurrentRow.DataBoundItem;
+            partSelections.Remove(selectedPart);
+        }
+    }
 }
 

@@ -40,7 +40,15 @@ namespace InventoryManagementLibrary
         {
             return AssociatedParts;
         }
-        //public bool RemoveAssociatedPart(int) { }
+
+        public bool RemoveAssociatedPart(int partID)
+        {
+
+            Part partToRemove = AssociatedParts.FirstOrDefault(part => part.partID == Convert.ToInt32(partID));
+            AssociatedParts.Remove(partToRemove);
+            return true;
+        }
+
         //public Part LookupAssociatedPart(int) { }
     }
 }
