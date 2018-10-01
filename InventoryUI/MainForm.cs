@@ -13,6 +13,9 @@ namespace InventoryUI
 {
     public partial class MainForm : Form
     {
+        //TODO - question: if product with associated part cannot be deleted
+        //and product cannot be saved without associated parts
+        // how can a product ever be deleted?
         Inventory inventory = new Inventory();
 
         BindingSource partListSource = new BindingSource();
@@ -63,7 +66,8 @@ namespace InventoryUI
             //product.AddAssociatedPart(n);
 
             //inventory.AddProduct(product);
-            
+            #endregion
+
             partListSource.DataSource = inventory.GetPartsList();
             partsDataGrid.DataSource = partListSource;
         
@@ -74,8 +78,8 @@ namespace InventoryUI
             
             productsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
             productsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //productsDataGrid.Columns[3].MinimumWidth = "*";
-            #endregion
+            //TODO productsDataGrid.Columns[3].MinimumWidth = "*";
+            
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -94,14 +98,23 @@ namespace InventoryUI
 
         private void deletePartButton_Click(object sender, EventArgs e)
         {
-            //TODO - check if selection is null try/catch?
             
-            var partToDelete = (Part)partsDataGrid.CurrentRow.DataBoundItem;
-                     
-            if (MessageBox.Show("Are you sure you want to delete the part?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                inventory.DeletePart(partToDelete);
+                var partToDelete = (Part)partsDataGrid.CurrentRow.DataBoundItem;
+                if (MessageBox.Show("Are you sure you want to delete the part?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    inventory.DeletePart(partToDelete);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No part has been selected to delete.", "Error!");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+                     
+            
             
             //if (Object.ReferenceEquals(null, partToDelete)) { MessageBox.Show(partToDelete.ToString()); }
             //partsDataGrid.CurrentRow.DataBoundItem.GetType().ToString();
@@ -144,11 +157,26 @@ namespace InventoryUI
 
         private void deleteProductButton_Click(object sender, EventArgs e)
         {
-            var productToDelete = (Product)productsDataGrid.CurrentRow.DataBoundItem;
-            //TODO - prevent deletion if product has associated parts
-            if (MessageBox.Show("Are you sure you want to delete the Product?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                inventory.RemoveProduct(productToDelete);
+                var productToDelete = (Product)productsDataGrid.CurrentRow.DataBoundItem;
+                
+                if (productToDelete.GetAssociatedParts().Count() > 0)
+                {
+                    MessageBox.Show("Products with associated parts cannot be deleted.");
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure you want to delete the Product?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    inventory.RemoveProduct(productToDelete);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No part has been selected to delete.", "Error!");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
 
@@ -168,8 +196,6 @@ namespace InventoryUI
             int s;
             int rowIndex = -1;
 
-            //TODO - overload to take a string
-            //Part searchedPart = inventory.LookupPart(Convert.ToInt32(searchTerm));
             if (int.TryParse(searchTerm, out s))
             {
                 searchedPart = inventory.LookupPart(s);
@@ -196,9 +222,7 @@ namespace InventoryUI
             string searchTerm = productSearchTextBox.Text.ToLower();
             int s;
             int rowIndex = -1;
-
-            //TODO - overload to take a string
-            //Part searchedPart = inventory.LookupPart(Convert.ToInt32(searchTerm));
+                      
             if (int.TryParse(searchTerm, out s))
             {
                 searchedPart = inventory.LookupProduct(s);

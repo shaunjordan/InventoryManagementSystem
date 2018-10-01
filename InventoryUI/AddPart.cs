@@ -24,6 +24,26 @@ namespace InventoryUI
 
         private void savePartButton_Click(object sender, EventArgs e)
         {
+           
+            int minVal = Convert.ToInt32(partMinTextBox.Text);
+            int maxVal = Convert.ToInt32(partMaxTextBox.Text);
+            int invVal = Convert.ToInt32(partInvTextBox.Text);
+
+            if (minVal > maxVal)
+            {
+                partMinTextBox.BackColor = Color.Red;
+                MessageBox.Show("Minimum value cannot be greater than maximum value. Please correct.", "Invalid Values");
+                return;
+            }
+            
+            if (invVal < minVal || invVal > maxVal)
+            {
+                partInvTextBox.BackColor = Color.Red;
+                MessageBox.Show("Inventory value must not be lower than the minimum value or higher than the maximum value.", "Invalid Values");
+                return;
+            }
+        
+
             if (inhouseRadioButton.Checked)
                 {
 
@@ -31,10 +51,10 @@ namespace InventoryUI
                     {
                         partID = inventory.AssignID(),
                         name = partNameTextBox.Text,
-                        inStock = Convert.ToInt32(partInvTextBox.Text),
+                        inStock = invVal,
                         price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
-                        min = Convert.ToInt32(partMinTextBox.Text),
-                        max = Convert.ToInt32(partMaxTextBox.Text),
+                        min = minVal,
+                        max = maxVal,
                         machineID = Convert.ToInt32(partCompanyNameMachineIDTextBox.Text)
                     });
              }
@@ -46,9 +66,9 @@ namespace InventoryUI
                     partID = inventory.AssignID(),
                     name = partNameTextBox.Text,
                     price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
-                    inStock = Convert.ToInt32(partInvTextBox.Text),
-                    min = Convert.ToInt32(partMinTextBox.Text),
-                    max = Convert.ToInt32(partMaxTextBox.Text),
+                    inStock = invVal,
+                    min = minVal,
+                    max = maxVal,
                     companyName = partCompanyNameMachineIDTextBox.Text
                 });
             }
@@ -74,24 +94,32 @@ namespace InventoryUI
         {
             //Converts entered number into currency format for display
             double price;
+            
             if (double.TryParse(partPriceCostTextBox.Text, out price))
             {
                 partPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
-            }
+            } 
         }
-
+             
         private void partInvTextBox_TextChanged(object sender, EventArgs e)
         {
+            
             int invVal;
-            //TODO - split validation colors into separate class?
+            
             partInvTextBox.BackColor = Color.White;
             savePartButton.Enabled = true;
+
             if (!int.TryParse(partInvTextBox.Text, out invVal))
             {
                 partInvTextBox.BackColor = Color.Red;
                 savePartButton.Enabled = false;
             }
 
+            if (invVal < 0)
+            {
+                partInvTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
         }
 
         private void cancelAddPartButton_Click(object sender, EventArgs e)
@@ -99,6 +127,72 @@ namespace InventoryUI
             if (MessageBox.Show("Are you sure you wish to cancel? Any changes will not be saved.", "Confirm Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
+            }
+        }
+
+        private void partMinTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int minVal;
+            
+
+            partMinTextBox.BackColor = Color.White;
+            savePartButton.Enabled = true;
+
+            if (!int.TryParse(partMinTextBox.Text, out minVal))
+            {
+                partMinTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
+
+            if (minVal < 0)
+            {
+                partMinTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
+        }
+
+        private void partMaxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int maxVal;
+
+
+            partMaxTextBox.BackColor = Color.White;
+            savePartButton.Enabled = true;
+
+            if (!int.TryParse(partMaxTextBox.Text, out maxVal))
+            {
+                partMaxTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
+
+            if (maxVal < 0)
+            {
+                partMaxTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
+        }
+
+        private void partCompanyNameMachineIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int validMachineID;
+
+
+            partCompanyNameMachineIDTextBox.BackColor = Color.White;
+            savePartButton.Enabled = true;
+
+            if (inhouseRadioButton.Checked)
+            {
+                if (!int.TryParse(partCompanyNameMachineIDTextBox.Text, out validMachineID))
+                {
+                    partCompanyNameMachineIDTextBox.BackColor = Color.Red;
+                    savePartButton.Enabled = false;
+                }
+
+                if (validMachineID < 0)
+                {
+                    partCompanyNameMachineIDTextBox.BackColor = Color.Red;
+                    savePartButton.Enabled = false;
+                }
             }
         }
     }

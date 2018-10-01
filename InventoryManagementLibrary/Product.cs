@@ -49,6 +49,10 @@ namespace InventoryManagementLibrary
             return true;
         }
 
-        //public Part LookupAssociatedPart(int) { }
+        //public Part LookupAssociatedPart(int searchVal)
+        //{
+        //    Part searchedPart = 
+        //    return searchedPart;
+        //}
     }
 }

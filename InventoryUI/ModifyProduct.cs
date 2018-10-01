@@ -13,7 +13,8 @@ namespace InventoryUI
 {
     public partial class ModifyProduct : Form
     {
-        
+        //TODO - data validation like add part
+        //TODO - cannot save if not associated parts selected
         Inventory inventory;
 
         //intermediarty list

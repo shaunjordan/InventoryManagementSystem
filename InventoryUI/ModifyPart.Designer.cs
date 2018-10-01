@@ -89,6 +89,7 @@
             this.modifyPartMinTextBox.Size = new System.Drawing.Size(116, 42);
             this.modifyPartMinTextBox.TabIndex = 11;
             this.modifyPartMinTextBox.Text = "Min";
+            this.modifyPartMinTextBox.TextChanged += new System.EventHandler(this.modifyPartMinTextBox_TextChanged);
             // 
             // modifyPartMaxTextBox
             // 
@@ -98,6 +99,7 @@
             this.modifyPartMaxTextBox.Size = new System.Drawing.Size(116, 42);
             this.modifyPartMaxTextBox.TabIndex = 13;
             this.modifyPartMaxTextBox.Text = "Max";
+            this.modifyPartMaxTextBox.TextChanged += new System.EventHandler(this.modifyPartMaxTextBox_TextChanged);
             // 
             // modifyPartCompanyOrMachine
             // 
@@ -107,6 +109,7 @@
             this.modifyPartCompanyOrMachine.Size = new System.Drawing.Size(284, 42);
             this.modifyPartCompanyOrMachine.TabIndex = 15;
             this.modifyPartCompanyOrMachine.Text = "Company Name";
+            this.modifyPartCompanyOrMachine.TextChanged += new System.EventHandler(this.modifyPartCompanyOrMachine_TextChanged);
             // 
             // modifyPartPriceCostTextBox
             // 
@@ -126,6 +129,7 @@
             this.modifyPartInvTextBox.Size = new System.Drawing.Size(284, 42);
             this.modifyPartInvTextBox.TabIndex = 7;
             this.modifyPartInvTextBox.Text = "Inv";
+            this.modifyPartInvTextBox.TextChanged += new System.EventHandler(this.modifyPartInvTextBox_TextChanged);
             // 
             // modifyPartNameTextBox
             // 

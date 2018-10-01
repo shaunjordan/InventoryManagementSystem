@@ -13,6 +13,8 @@ namespace InventoryUI
 {
     public partial class AddProduct : Form
     {
+        //TODO - data validation like add part
+        //TODO - cannot save if not associated parts selected
         private Inventory inventory;
         BindingList<Part> partSelections = new BindingList<Part>();
 
@@ -77,6 +79,36 @@ namespace InventoryUI
             //TODO - investigate deletion issue
             Part selectedPart = (Part)productPartsDataGrid.CurrentRow.DataBoundItem;
             partSelections.Remove(selectedPart);
+        }
+
+        private void assocPartSearchButton_Click(object sender, EventArgs e)
+        {
+            //TODO - confused by Product having a LookupAssocPart that searches the same list from the main page.
+            Part searchedPart;
+            string searchTerm = assocPartSearchTextBox.Text.ToLower();
+            int s;
+            int rowIndex = -1;
+                        
+            if (int.TryParse(searchTerm, out s))
+            {
+                searchedPart = inventory.LookupPart(s);
+
+            }
+            else
+            {
+                searchedPart = inventory.LookupPart(searchTerm);
+            }
+
+            foreach (DataGridViewRow row in productPartsDataGrid.Rows)
+            {
+                if (row.DataBoundItem.Equals(searchedPart))
+                {
+                    rowIndex = row.Index;
+
+                    productPartsDataGrid.CurrentCell = productPartsDataGrid.Rows[rowIndex].Cells[0];
+                    break;
+                }
+            }
         }
     }
 }
