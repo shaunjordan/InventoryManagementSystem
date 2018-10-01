@@ -83,6 +83,7 @@ namespace InventoryUI
         private void partInvTextBox_TextChanged(object sender, EventArgs e)
         {
             int invVal;
+            //TODO - split validation colors into separate class?
             partInvTextBox.BackColor = Color.White;
             savePartButton.Enabled = true;
             if (!int.TryParse(partInvTextBox.Text, out invVal))
@@ -95,7 +96,10 @@ namespace InventoryUI
 
         private void cancelAddPartButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure you wish to cancel? Any changes will not be saved.", "Confirm Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

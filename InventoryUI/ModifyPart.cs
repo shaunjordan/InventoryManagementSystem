@@ -88,7 +88,10 @@ namespace InventoryUI
 
         private void modifyCancelAddPartButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure you wish to cancel? Any changes will not be saved.", "Confirm Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void modifyInhouseRadioButton_CheckedChanged(object sender, EventArgs e)

@@ -163,26 +163,29 @@ namespace InventoryUI
 
         private void partsSearchButton_Click(object sender, EventArgs e)
         {
-            partsDataGrid.CurrentRow.Selected = false;
+            //partsDataGrid.CurrentRow.Selected = false;
 
-            int rowIndex = -1;
-            //TODO - overload to take a string
-            Part searchedPart = inventory.LookupPart(Convert.ToInt32(partSearchTextBox.Text));
+            string searchTerm = partSearchTextBox.Text;
 
-            foreach (DataGridViewRow row in partsDataGrid.Rows)
-            {
-                if (row.DataBoundItem.Equals(searchedPart))
-                {
-                    rowIndex = row.Index;
-                    
-                    //search is selecting two rows when searching for the second item
-                    partsDataGrid.Rows[rowIndex].Selected = false;
-                    partsDataGrid.Rows[rowIndex].Selected = true;
+            //int rowIndex = -1;
+            ////TODO - overload to take a string
+            //Part searchedPart = inventory.LookupPart(Convert.ToInt32(partSearchTextBox.Text));
 
-                    break;
-                }
-            }
+            //foreach (DataGridViewRow row in partsDataGrid.Rows)
+            //{
+            //    if (row.DataBoundItem.Equals(searchedPart))
+            //    {
+            //        rowIndex = row.Index;
 
+            //        //search is selecting two rows when searching for the second item
+            //        partsDataGrid.Rows[rowIndex].Selected = false;
+            //        partsDataGrid.Rows[rowIndex].Selected = true;
+
+            //        break;
+            //    }
+            //}
+            var searchResult = inventory.GetPartsList().Where(part => part.name.Contains(searchTerm));
+            MessageBox.Show(searchResult.ToString());
             
         }
     }

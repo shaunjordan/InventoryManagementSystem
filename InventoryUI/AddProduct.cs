@@ -60,7 +60,10 @@ namespace InventoryUI
 
         private void cancelProductButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure you wish to cancel? Any changes will not be saved.", "Confirm Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void addAssocProductButton_Click(object sender, EventArgs e)
