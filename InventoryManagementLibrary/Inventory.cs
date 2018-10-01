@@ -33,16 +33,17 @@ namespace InventoryManagementLibrary
             return true;
         }
 
-        //public Product LookupProduct(int productID)
-        //{
-        //    foreach (var item in Products)
-        //    {
-        //        if (Products.Find(Product.productID))
-        //        {
-        //            Product.
-        //        }
-        //    }
-        //}
+        public Product LookupProduct(int searchVal)
+        {
+            Product searchedProduct = Products.SingleOrDefault(obj => obj.productID == searchVal);
+            return searchedProduct;
+        }
+
+        public Product LookupProduct(string searchTerm)
+        {
+            Product searchedProduct = Products.FirstOrDefault(obj => obj.name.ToLower().Contains(searchTerm));
+            return searchedProduct;
+        }
 
         public void UpdateProduct(int productIndex, Product product)
         {
@@ -62,7 +63,13 @@ namespace InventoryManagementLibrary
 
         public Part LookupPart(int searchVal)
         {
-            Part searchedPart = AllParts.SingleOrDefault(x => x.partID == searchVal);
+            Part searchedPart = AllParts.SingleOrDefault(obj => obj.partID == searchVal);
+            return searchedPart;
+        }
+
+        public Part LookupPart(string searchTerm)
+        {
+            Part searchedPart = AllParts.FirstOrDefault(obj => obj.name.ToLower().Contains(searchTerm));
             return searchedPart;
         }
 

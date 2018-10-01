@@ -145,8 +145,8 @@ namespace InventoryUI
         private void deleteProductButton_Click(object sender, EventArgs e)
         {
             var productToDelete = (Product)productsDataGrid.CurrentRow.DataBoundItem;
-            
-            if (MessageBox.Show("Are you sure you want to delete the part?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //TODO - prevent deletion if product has associated parts
+            if (MessageBox.Show("Are you sure you want to delete the Product?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 inventory.RemoveProduct(productToDelete);
             }
@@ -163,30 +163,61 @@ namespace InventoryUI
 
         private void partsSearchButton_Click(object sender, EventArgs e)
         {
-            //partsDataGrid.CurrentRow.Selected = false;
+            Part searchedPart;
+            string searchTerm = partSearchTextBox.Text.ToLower();
+            int s;
+            int rowIndex = -1;
 
-            string searchTerm = partSearchTextBox.Text;
+            //TODO - overload to take a string
+            //Part searchedPart = inventory.LookupPart(Convert.ToInt32(searchTerm));
+            if (int.TryParse(searchTerm, out s))
+            {
+                searchedPart = inventory.LookupPart(s);
+            } else
+            {
+                searchedPart = inventory.LookupPart(searchTerm);
+            }
 
-            //int rowIndex = -1;
-            ////TODO - overload to take a string
-            //Part searchedPart = inventory.LookupPart(Convert.ToInt32(partSearchTextBox.Text));
+            foreach (DataGridViewRow row in partsDataGrid.Rows)
+            {
+                if (row.DataBoundItem.Equals(searchedPart))
+                {
+                    rowIndex = row.Index;
 
-            //foreach (DataGridViewRow row in partsDataGrid.Rows)
-            //{
-            //    if (row.DataBoundItem.Equals(searchedPart))
-            //    {
-            //        rowIndex = row.Index;
+                    partsDataGrid.CurrentCell = partsDataGrid.Rows[rowIndex].Cells[0];
+                    break;
+                }
+            }
+        }
 
-            //        //search is selecting two rows when searching for the second item
-            //        partsDataGrid.Rows[rowIndex].Selected = false;
-            //        partsDataGrid.Rows[rowIndex].Selected = true;
+        private void productSearchButton_Click(object sender, EventArgs e)
+        {
+            Product searchedPart;
+            string searchTerm = productSearchTextBox.Text.ToLower();
+            int s;
+            int rowIndex = -1;
 
-            //        break;
-            //    }
-            //}
-            var searchResult = inventory.GetPartsList().Where(part => part.name.Contains(searchTerm));
-            MessageBox.Show(searchResult.ToString());
-            
+            //TODO - overload to take a string
+            //Part searchedPart = inventory.LookupPart(Convert.ToInt32(searchTerm));
+            if (int.TryParse(searchTerm, out s))
+            {
+                searchedPart = inventory.LookupProduct(s);
+            }
+            else
+            {
+                searchedPart = inventory.LookupProduct(searchTerm);
+            }
+
+            foreach (DataGridViewRow row in productsDataGrid.Rows)
+            {
+                if (row.DataBoundItem.Equals(searchedPart))
+                {
+                    rowIndex = row.Index;
+
+                    productsDataGrid.CurrentCell = productsDataGrid.Rows[rowIndex].Cells[0];
+                    break;
+                }
+            }
         }
     }
 }

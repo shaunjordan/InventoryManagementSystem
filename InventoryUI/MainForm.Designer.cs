@@ -152,6 +152,7 @@
             this.partsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partsDataGrid.Location = new System.Drawing.Point(60, 100);
             this.partsDataGrid.Margin = new System.Windows.Forms.Padding(6);
+            this.partsDataGrid.MultiSelect = false;
             this.partsDataGrid.Name = "partsDataGrid";
             this.partsDataGrid.ReadOnly = true;
             this.partsDataGrid.RowHeadersVisible = false;
@@ -232,6 +233,7 @@
             this.productSearchButton.TabIndex = 1;
             this.productSearchButton.Text = "Search";
             this.productSearchButton.UseVisualStyleBackColor = false;
+            this.productSearchButton.Click += new System.EventHandler(this.productSearchButton_Click);
             // 
             // productsDataGrid
             // 
@@ -244,6 +246,7 @@
             this.productsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productsDataGrid.Location = new System.Drawing.Point(42, 100);
             this.productsDataGrid.Margin = new System.Windows.Forms.Padding(6);
+            this.productsDataGrid.MultiSelect = false;
             this.productsDataGrid.Name = "productsDataGrid";
             this.productsDataGrid.ReadOnly = true;
             this.productsDataGrid.RowHeadersVisible = false;
