@@ -13,8 +13,7 @@ namespace InventoryUI
 {
     public partial class ModifyProduct :  Form
     {
-        //TODO - data validation like add part
-        //TODO - cannot save if not associated parts selected
+        
         Inventory inventory;
 
         //intermediarty list
@@ -194,6 +193,49 @@ namespace InventoryUI
             {
                 modifyProductMaxTextBox.BackColor = Color.Red;
                 modifySaveProductButton.Enabled = false;
+            }
+        }
+
+        private void modifyAssocPartSearchButton_Click(object sender, EventArgs e)
+        {
+           
+
+            Part searchedPart;
+            string searchTerm = modifyAssocPartSearchTextBox.Text.ToLower();
+            int s;
+            int rowIndex = -1;
+
+            if (product.GetAssociatedParts().Count > 0)
+            {
+                if (int.TryParse(searchTerm, out s))
+                {
+                    searchedPart = product.LookupAssociatedPart(s);
+                }
+                else
+                {
+                    searchedPart = product.LookupAssociatedPart(searchTerm);
+                }
+            }
+
+            if (int.TryParse(searchTerm, out s))
+            {
+                searchedPart = inventory.LookupPart(s);
+
+            }
+            else
+            {
+                searchedPart = inventory.LookupPart(searchTerm);
+            }
+
+            foreach (DataGridViewRow row in modifyProductPartsDataGrid.Rows)
+            {
+                if (row.DataBoundItem.Equals(searchedPart))
+                {
+                    rowIndex = row.Index;
+
+                    modifyProductPartsDataGrid.CurrentCell = modifyProductPartsDataGrid.Rows[rowIndex].Cells[0];
+                    break;
+                }
             }
         }
     }

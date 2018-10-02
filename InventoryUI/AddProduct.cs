@@ -13,8 +13,7 @@ namespace InventoryUI
 {
     public partial class AddProduct : Form
     {
-        //TODO - data validation like add part
-        //TODO - cannot save if not associated parts selected
+                
         private Inventory inventory;
         BindingList<Part> partSelections = new BindingList<Part>();
 
@@ -81,6 +80,7 @@ namespace InventoryUI
         private void productPriceCostTextBox_Leave(object sender, EventArgs e)
         {
             //Converts price value to currency format for aesthetic
+            //TODO - this is weird
             double productPrice;
             productPriceCostTextBox.BackColor = Color.White;
             saveProductButton.Enabled = true;
@@ -131,12 +131,12 @@ namespace InventoryUI
 
         private void assocPartSearchButton_Click(object sender, EventArgs e)
         {
-            //TODO - confused by Product having a LookupAssocPart that searches the same list from the main page.
+            
             Part searchedPart;
             string searchTerm = assocPartSearchTextBox.Text.ToLower();
             int s;
             int rowIndex = -1;
-                        
+                                                
             if (int.TryParse(searchTerm, out s))
             {
                 searchedPart = inventory.LookupPart(s);

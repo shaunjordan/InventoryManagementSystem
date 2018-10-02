@@ -50,8 +50,7 @@ namespace InventoryUI
 
         private void modifySavePartButton_Click(object sender, EventArgs e)
         {
-            //TODO - add the same data validation on the add part code behind
-            
+                        
             var partToEdit = inventory.GetPartsList().FirstOrDefault(editPart => editPart.partID == Convert.ToInt32(modifyPartIDTextBox.Text));
             int partIndex = inventory.GetPartsList().IndexOf(partToEdit);
             int minVal = Convert.ToInt32(modifyPartMinTextBox.Text);

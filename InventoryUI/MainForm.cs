@@ -13,9 +13,7 @@ namespace InventoryUI
 {
     public partial class MainForm : Form
     {
-        //TODO - question: if product with associated part cannot be deleted
-        //and product cannot be saved without associated parts
-        // how can a product ever be deleted?
+        
         Inventory inventory = new Inventory();
 
         BindingSource partListSource = new BindingSource();
@@ -92,10 +90,12 @@ namespace InventoryUI
             productsDataGrid.DataSource = productListSource;
 
             partsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
-            
+            partsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            partsDataGrid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             productsDataGrid.Columns[2].DefaultCellStyle.Format = "C";
             productsDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            //TODO productsDataGrid.Columns[3].MinimumWidth = "*";
+            productsDataGrid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             
         }
 
@@ -130,11 +130,6 @@ namespace InventoryUI
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
-                     
-            
-            
-            //if (Object.ReferenceEquals(null, partToDelete)) { MessageBox.Show(partToDelete.ToString()); }
-            //partsDataGrid.CurrentRow.DataBoundItem.GetType().ToString();
         }
 
         private void modifyPartButton_Click(object sender, EventArgs e)

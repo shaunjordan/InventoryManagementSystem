@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventoryManagementLibrary;
 
+
 namespace InventoryUI
 {
     public partial class AddPart : Form
@@ -93,14 +94,46 @@ namespace InventoryUI
         private void partPriceCostTextBox_Leave(object sender, EventArgs e)
         {
             //Converts entered number into currency format for display
+
             double price;
             
+
             if (double.TryParse(partPriceCostTextBox.Text, out price))
             {
                 partPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
-            } 
+                partPriceCostTextBox.BackColor = Color.White;
+                savePartButton.Enabled = true;
+            }
+
+            if (!partPriceCostTextBox.Text.Equals(String.Format("{0:C}", price)))
+            {
+                partPriceCostTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+            }
         }
-             
+
+        private void partPriceCostTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //TODO - maybe put the dollar format just in the datagrid view
+
+            //double price;
+            //partPriceCostTextBox.BackColor = Color.White;
+            //savePartButton.Enabled = true;
+
+            //if (!double.TryParse(partPriceCostTextBox.Text, out price))
+            //{
+            //    partPriceCostTextBox.BackColor = Color.Red;
+            //    savePartButton.Enabled = false;
+            //}
+
+            //if (price < 0)
+            //{
+            //   
+            //}
+            
+
+        }
+
         private void partInvTextBox_TextChanged(object sender, EventArgs e)
         {
             

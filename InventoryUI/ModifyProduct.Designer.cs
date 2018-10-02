@@ -58,9 +58,10 @@
             this.modifyProductLabel.AutoSize = true;
             this.modifyProductLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyProductLabel.Location = new System.Drawing.Point(57, 61);
+            this.modifyProductLabel.Location = new System.Drawing.Point(114, 117);
+            this.modifyProductLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.modifyProductLabel.Name = "modifyProductLabel";
-            this.modifyProductLabel.Size = new System.Drawing.Size(125, 21);
+            this.modifyProductLabel.Size = new System.Drawing.Size(248, 45);
             this.modifyProductLabel.TabIndex = 57;
             this.modifyProductLabel.Text = "Modify Product";
             // 
@@ -71,9 +72,10 @@
             this.modifyCancelProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyCancelProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.modifyCancelProductButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifyCancelProductButton.Location = new System.Drawing.Point(657, 499);
+            this.modifyCancelProductButton.Location = new System.Drawing.Point(1314, 960);
+            this.modifyCancelProductButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyCancelProductButton.Name = "modifyCancelProductButton";
-            this.modifyCancelProductButton.Size = new System.Drawing.Size(70, 33);
+            this.modifyCancelProductButton.Size = new System.Drawing.Size(140, 63);
             this.modifyCancelProductButton.TabIndex = 56;
             this.modifyCancelProductButton.Text = "Cancel";
             this.modifyCancelProductButton.UseVisualStyleBackColor = false;
@@ -86,9 +88,10 @@
             this.modifySaveProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifySaveProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.modifySaveProductButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifySaveProductButton.Location = new System.Drawing.Point(581, 499);
+            this.modifySaveProductButton.Location = new System.Drawing.Point(1162, 960);
+            this.modifySaveProductButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifySaveProductButton.Name = "modifySaveProductButton";
-            this.modifySaveProductButton.Size = new System.Drawing.Size(70, 33);
+            this.modifySaveProductButton.Size = new System.Drawing.Size(140, 63);
             this.modifySaveProductButton.TabIndex = 55;
             this.modifySaveProductButton.Text = "Save";
             this.modifySaveProductButton.UseVisualStyleBackColor = false;
@@ -102,12 +105,13 @@
             this.modifyAssocPartsDataGrid.AllowUserToResizeRows = false;
             this.modifyAssocPartsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.modifyAssocPartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.modifyAssocPartsDataGrid.Location = new System.Drawing.Point(365, 271);
+            this.modifyAssocPartsDataGrid.Location = new System.Drawing.Point(730, 521);
+            this.modifyAssocPartsDataGrid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyAssocPartsDataGrid.Name = "modifyAssocPartsDataGrid";
             this.modifyAssocPartsDataGrid.ReadOnly = true;
             this.modifyAssocPartsDataGrid.RowHeadersVisible = false;
             this.modifyAssocPartsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.modifyAssocPartsDataGrid.Size = new System.Drawing.Size(362, 146);
+            this.modifyAssocPartsDataGrid.Size = new System.Drawing.Size(724, 281);
             this.modifyAssocPartsDataGrid.TabIndex = 53;
             // 
             // modifyDeleteAssocPart
@@ -117,9 +121,10 @@
             this.modifyDeleteAssocPart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyDeleteAssocPart.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.modifyDeleteAssocPart.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifyDeleteAssocPart.Location = new System.Drawing.Point(657, 423);
+            this.modifyDeleteAssocPart.Location = new System.Drawing.Point(1314, 813);
+            this.modifyDeleteAssocPart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyDeleteAssocPart.Name = "modifyDeleteAssocPart";
-            this.modifyDeleteAssocPart.Size = new System.Drawing.Size(70, 33);
+            this.modifyDeleteAssocPart.Size = new System.Drawing.Size(140, 63);
             this.modifyDeleteAssocPart.TabIndex = 54;
             this.modifyDeleteAssocPart.Text = "Delete";
             this.modifyDeleteAssocPart.UseVisualStyleBackColor = false;
@@ -128,9 +133,10 @@
             // modifyAssocPartSearchTextBox
             // 
             this.modifyAssocPartSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.modifyAssocPartSearchTextBox.Location = new System.Drawing.Point(581, 28);
+            this.modifyAssocPartSearchTextBox.Location = new System.Drawing.Point(1162, 54);
+            this.modifyAssocPartSearchTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyAssocPartSearchTextBox.Name = "modifyAssocPartSearchTextBox";
-            this.modifyAssocPartSearchTextBox.Size = new System.Drawing.Size(146, 20);
+            this.modifyAssocPartSearchTextBox.Size = new System.Drawing.Size(290, 31);
             this.modifyAssocPartSearchTextBox.TabIndex = 52;
             // 
             // modifyAssocPartSearchButton
@@ -140,12 +146,14 @@
             this.modifyAssocPartSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyAssocPartSearchButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
             this.modifyAssocPartSearchButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifyAssocPartSearchButton.Location = new System.Drawing.Point(517, 28);
+            this.modifyAssocPartSearchButton.Location = new System.Drawing.Point(1034, 54);
+            this.modifyAssocPartSearchButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyAssocPartSearchButton.Name = "modifyAssocPartSearchButton";
-            this.modifyAssocPartSearchButton.Size = new System.Drawing.Size(58, 25);
+            this.modifyAssocPartSearchButton.Size = new System.Drawing.Size(116, 48);
             this.modifyAssocPartSearchButton.TabIndex = 50;
             this.modifyAssocPartSearchButton.Text = "Search";
             this.modifyAssocPartSearchButton.UseVisualStyleBackColor = false;
+            this.modifyAssocPartSearchButton.Click += new System.EventHandler(this.modifyAssocPartSearchButton_Click);
             // 
             // modifyProductPartsDataGrid
             // 
@@ -155,12 +163,13 @@
             this.modifyProductPartsDataGrid.AllowUserToResizeRows = false;
             this.modifyProductPartsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.modifyProductPartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.modifyProductPartsDataGrid.Location = new System.Drawing.Point(365, 61);
+            this.modifyProductPartsDataGrid.Location = new System.Drawing.Point(730, 117);
+            this.modifyProductPartsDataGrid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductPartsDataGrid.Name = "modifyProductPartsDataGrid";
             this.modifyProductPartsDataGrid.ReadOnly = true;
             this.modifyProductPartsDataGrid.RowHeadersVisible = false;
             this.modifyProductPartsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.modifyProductPartsDataGrid.Size = new System.Drawing.Size(362, 146);
+            this.modifyProductPartsDataGrid.Size = new System.Drawing.Size(724, 281);
             this.modifyProductPartsDataGrid.TabIndex = 49;
             // 
             // modifyAddAssocProductButton
@@ -170,9 +179,10 @@
             this.modifyAddAssocProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyAddAssocProductButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.modifyAddAssocProductButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.modifyAddAssocProductButton.Location = new System.Drawing.Point(657, 213);
+            this.modifyAddAssocProductButton.Location = new System.Drawing.Point(1314, 410);
+            this.modifyAddAssocProductButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyAddAssocProductButton.Name = "modifyAddAssocProductButton";
-            this.modifyAddAssocProductButton.Size = new System.Drawing.Size(70, 33);
+            this.modifyAddAssocProductButton.Size = new System.Drawing.Size(140, 63);
             this.modifyAddAssocProductButton.TabIndex = 51;
             this.modifyAddAssocProductButton.Text = "Add";
             this.modifyAddAssocProductButton.UseVisualStyleBackColor = false;
@@ -181,9 +191,10 @@
             // modifyProductMinTextBox
             // 
             this.modifyProductMinTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductMinTextBox.Location = new System.Drawing.Point(108, 319);
+            this.modifyProductMinTextBox.Location = new System.Drawing.Point(216, 613);
+            this.modifyProductMinTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductMinTextBox.Name = "modifyProductMinTextBox";
-            this.modifyProductMinTextBox.Size = new System.Drawing.Size(60, 25);
+            this.modifyProductMinTextBox.Size = new System.Drawing.Size(116, 42);
             this.modifyProductMinTextBox.TabIndex = 46;
             this.modifyProductMinTextBox.Text = "Min";
             this.modifyProductMinTextBox.TextChanged += new System.EventHandler(this.modifyProductMinTextBox_TextChanged);
@@ -191,9 +202,10 @@
             // modifyProductMaxTextBox
             // 
             this.modifyProductMaxTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductMaxTextBox.Location = new System.Drawing.Point(215, 319);
+            this.modifyProductMaxTextBox.Location = new System.Drawing.Point(430, 613);
+            this.modifyProductMaxTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductMaxTextBox.Name = "modifyProductMaxTextBox";
-            this.modifyProductMaxTextBox.Size = new System.Drawing.Size(60, 25);
+            this.modifyProductMaxTextBox.Size = new System.Drawing.Size(116, 42);
             this.modifyProductMaxTextBox.TabIndex = 48;
             this.modifyProductMaxTextBox.Text = "Max";
             this.modifyProductMaxTextBox.TextChanged += new System.EventHandler(this.modifyProductMaxTextBox_TextChanged);
@@ -201,9 +213,10 @@
             // modifyProductPriceCostTextBox
             // 
             this.modifyProductPriceCostTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductPriceCostTextBox.Location = new System.Drawing.Point(108, 271);
+            this.modifyProductPriceCostTextBox.Location = new System.Drawing.Point(216, 521);
+            this.modifyProductPriceCostTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductPriceCostTextBox.Name = "modifyProductPriceCostTextBox";
-            this.modifyProductPriceCostTextBox.Size = new System.Drawing.Size(144, 25);
+            this.modifyProductPriceCostTextBox.Size = new System.Drawing.Size(284, 42);
             this.modifyProductPriceCostTextBox.TabIndex = 44;
             this.modifyProductPriceCostTextBox.Text = "Price";
             this.modifyProductPriceCostTextBox.Leave += new System.EventHandler(this.modifyProductPriceCostTextBox_Leave);
@@ -211,9 +224,10 @@
             // modifyProductInvTextBox
             // 
             this.modifyProductInvTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductInvTextBox.Location = new System.Drawing.Point(108, 230);
+            this.modifyProductInvTextBox.Location = new System.Drawing.Point(216, 442);
+            this.modifyProductInvTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductInvTextBox.Name = "modifyProductInvTextBox";
-            this.modifyProductInvTextBox.Size = new System.Drawing.Size(144, 25);
+            this.modifyProductInvTextBox.Size = new System.Drawing.Size(284, 42);
             this.modifyProductInvTextBox.TabIndex = 42;
             this.modifyProductInvTextBox.Text = "Inv";
             this.modifyProductInvTextBox.TextChanged += new System.EventHandler(this.modifyProductInvTextBox_TextChanged);
@@ -221,9 +235,10 @@
             // modifyProductNameTextBox
             // 
             this.modifyProductNameTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductNameTextBox.Location = new System.Drawing.Point(108, 194);
+            this.modifyProductNameTextBox.Location = new System.Drawing.Point(216, 373);
+            this.modifyProductNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductNameTextBox.Name = "modifyProductNameTextBox";
-            this.modifyProductNameTextBox.Size = new System.Drawing.Size(144, 25);
+            this.modifyProductNameTextBox.Size = new System.Drawing.Size(284, 42);
             this.modifyProductNameTextBox.TabIndex = 40;
             this.modifyProductNameTextBox.Text = "Product Name";
             // 
@@ -231,10 +246,11 @@
             // 
             this.modifyProductIDTextBox.Enabled = false;
             this.modifyProductIDTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductIDTextBox.Location = new System.Drawing.Point(108, 158);
+            this.modifyProductIDTextBox.Location = new System.Drawing.Point(216, 304);
+            this.modifyProductIDTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.modifyProductIDTextBox.Name = "modifyProductIDTextBox";
             this.modifyProductIDTextBox.ReadOnly = true;
-            this.modifyProductIDTextBox.Size = new System.Drawing.Size(116, 25);
+            this.modifyProductIDTextBox.Size = new System.Drawing.Size(228, 42);
             this.modifyProductIDTextBox.TabIndex = 38;
             this.modifyProductIDTextBox.Text = "Auto Generated";
             this.modifyProductIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -244,9 +260,10 @@
             this.productMaxLabel.AutoSize = true;
             this.productMaxLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productMaxLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.productMaxLabel.Location = new System.Drawing.Point(174, 322);
+            this.productMaxLabel.Location = new System.Drawing.Point(348, 619);
+            this.productMaxLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.productMaxLabel.Name = "productMaxLabel";
-            this.productMaxLabel.Size = new System.Drawing.Size(34, 17);
+            this.productMaxLabel.Size = new System.Drawing.Size(66, 36);
             this.productMaxLabel.TabIndex = 47;
             this.productMaxLabel.Text = "Max";
             // 
@@ -255,9 +272,10 @@
             this.modifyProductMinLabel.AutoSize = true;
             this.modifyProductMinLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductMinLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductMinLabel.Location = new System.Drawing.Point(58, 322);
+            this.modifyProductMinLabel.Location = new System.Drawing.Point(116, 619);
+            this.modifyProductMinLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.modifyProductMinLabel.Name = "modifyProductMinLabel";
-            this.modifyProductMinLabel.Size = new System.Drawing.Size(31, 17);
+            this.modifyProductMinLabel.Size = new System.Drawing.Size(61, 36);
             this.modifyProductMinLabel.TabIndex = 45;
             this.modifyProductMinLabel.Text = "Min";
             // 
@@ -266,9 +284,10 @@
             this.modifyProductPriceCostLabel.AutoSize = true;
             this.modifyProductPriceCostLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductPriceCostLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductPriceCostLabel.Location = new System.Drawing.Point(58, 274);
+            this.modifyProductPriceCostLabel.Location = new System.Drawing.Point(116, 527);
+            this.modifyProductPriceCostLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.modifyProductPriceCostLabel.Name = "modifyProductPriceCostLabel";
-            this.modifyProductPriceCostLabel.Size = new System.Drawing.Size(37, 17);
+            this.modifyProductPriceCostLabel.Size = new System.Drawing.Size(73, 36);
             this.modifyProductPriceCostLabel.TabIndex = 43;
             this.modifyProductPriceCostLabel.Text = "Price";
             // 
@@ -277,9 +296,10 @@
             this.modifyProductInvLabel.AutoSize = true;
             this.modifyProductInvLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductInvLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductInvLabel.Location = new System.Drawing.Point(58, 233);
+            this.modifyProductInvLabel.Location = new System.Drawing.Point(116, 448);
+            this.modifyProductInvLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.modifyProductInvLabel.Name = "modifyProductInvLabel";
-            this.modifyProductInvLabel.Size = new System.Drawing.Size(27, 17);
+            this.modifyProductInvLabel.Size = new System.Drawing.Size(51, 36);
             this.modifyProductInvLabel.TabIndex = 41;
             this.modifyProductInvLabel.Text = "Inv";
             // 
@@ -288,9 +308,10 @@
             this.modifyProductNameLabel.AutoSize = true;
             this.modifyProductNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductNameLabel.Location = new System.Drawing.Point(58, 197);
+            this.modifyProductNameLabel.Location = new System.Drawing.Point(116, 379);
+            this.modifyProductNameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.modifyProductNameLabel.Name = "modifyProductNameLabel";
-            this.modifyProductNameLabel.Size = new System.Drawing.Size(44, 17);
+            this.modifyProductNameLabel.Size = new System.Drawing.Size(86, 36);
             this.modifyProductNameLabel.TabIndex = 39;
             this.modifyProductNameLabel.Text = "Name";
             // 
@@ -299,17 +320,18 @@
             this.modifyProductIDLabel.AutoSize = true;
             this.modifyProductIDLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifyProductIDLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.modifyProductIDLabel.Location = new System.Drawing.Point(58, 158);
+            this.modifyProductIDLabel.Location = new System.Drawing.Point(116, 304);
+            this.modifyProductIDLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.modifyProductIDLabel.Name = "modifyProductIDLabel";
-            this.modifyProductIDLabel.Size = new System.Drawing.Size(21, 17);
+            this.modifyProductIDLabel.Size = new System.Drawing.Size(42, 36);
             this.modifyProductIDLabel.TabIndex = 37;
             this.modifyProductIDLabel.Text = "ID";
             // 
             // ModifyProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1568, 1079);
             this.Controls.Add(this.modifyProductLabel);
             this.Controls.Add(this.modifyCancelProductButton);
             this.Controls.Add(this.modifySaveProductButton);
@@ -331,7 +353,7 @@
             this.Controls.Add(this.modifyProductInvLabel);
             this.Controls.Add(this.modifyProductNameLabel);
             this.Controls.Add(this.modifyProductIDLabel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ModifyProduct";
             this.Text = "ModifyProduct";
             ((System.ComponentModel.ISupportInitialize)(this.modifyAssocPartsDataGrid)).EndInit();

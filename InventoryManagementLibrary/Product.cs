@@ -49,10 +49,16 @@ namespace InventoryManagementLibrary
             return true;
         }
 
-        //public Part LookupAssociatedPart(int searchVal)
-        //{
-        //    Part searchedPart = 
-        //    return searchedPart;
-        //}
+        public Part LookupAssociatedPart(int searchVal)
+        {
+            Part searchedPart = AssociatedParts.SingleOrDefault(obj => obj.partID == searchVal);
+            return searchedPart;
+        }
+
+        public Part LookupAssociatedPart(string searchTerm)
+        {
+            Part searchedPart = AssociatedParts.FirstOrDefault(obj => obj.name.ToLower().Contains(searchTerm));
+            return searchedPart;
+        }
     }
 }
