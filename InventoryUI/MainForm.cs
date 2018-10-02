@@ -27,17 +27,20 @@ namespace InventoryUI
        
             #region Sample data generation for debugging purposes
 
-            inventory.AddPart(new Outsourced {
+           
+            Outsourced newOutsourced = new Outsourced
+            {
                 partID = 456,
                 name = "Disc Brake",
                 price = 29.99,
                 inStock = 4,
-                min = 2, 
+                min = 2,
                 max = 10,
                 companyName = "Advanced Braking Co."
-            });
+            };
 
-            inventory.AddPart(new Inhouse {
+            Inhouse newInhouse = new Inhouse
+            {
                 partID = 197,
                 name = "Front Light",
                 price = 15.99,
@@ -45,27 +48,41 @@ namespace InventoryUI
                 min = 5,
                 max = 15,
                 machineID = 51347
-            });
+            };
+
+            inventory.AddPart(newOutsourced);
+            inventory.AddPart(newInhouse);
 
             //Inhouse n = new Inhouse();
             //n.partID = 76;
             //n.name = "Rambotuner";
 
-            inventory.AddProduct(new Product
+            Product electricScooter = new Product
             {
                 productID = 534,
                 name = "Electric Scooter",
                 inStock = 7,
-                price = 47.00,
+                price = 149.00,
                 min = 3,
-                max = 10            
+                max = 10
+            };
+            electricScooter.AddAssociatedPart(newOutsourced);
+            electricScooter.AddAssociatedPart(newInhouse);
 
-            });
-            //Product product = new Product();
-            //product.name = "Hifi Wifi";
-            //product.AddAssociatedPart(n);
+            Product chainBicycle = new Product
+            {
+                productID = 819,
+                name = "Single-Speed Bike",
+                inStock = 5,
+                price = 99,
+                min = 2,
+                max = 8
+            };
 
-            //inventory.AddProduct(product);
+            chainBicycle.AddAssociatedPart(newInhouse);
+
+            inventory.AddProduct(electricScooter);
+            inventory.AddProduct(chainBicycle);
             #endregion
 
             partListSource.DataSource = inventory.GetPartsList();

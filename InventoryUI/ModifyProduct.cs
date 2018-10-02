@@ -11,7 +11,7 @@ using InventoryManagementLibrary;
 
 namespace InventoryUI
 {
-    public partial class ModifyProduct : Form
+    public partial class ModifyProduct :  Form
     {
         //TODO - data validation like add part
         //TODO - cannot save if not associated parts selected
@@ -20,6 +20,7 @@ namespace InventoryUI
         //intermediarty list
         BindingSource productParts = new BindingSource();
         Product product;
+
         
         public ModifyProduct(Inventory inventoryClass, Product modProduct)
         {
@@ -40,19 +41,38 @@ namespace InventoryUI
             modifyAssocPartsDataGrid.DataSource = productParts;
         }
 
+
         private void modifySaveProductButton_Click(object sender, EventArgs e)
         {
             var productToEdit = inventory.GetProductList().FirstOrDefault(editProduct => editProduct.productID == Convert.ToInt32(modifyProductIDTextBox.Text));
             int productIndex = inventory.GetProductList().IndexOf(productToEdit);
 
+            int minVal = Convert.ToInt32(modifyProductMinTextBox.Text);
+            int maxVal = Convert.ToInt32(modifyProductMaxTextBox.Text);
+            int invVal = Convert.ToInt32(modifyProductInvTextBox.Text);
+
+            if (minVal > maxVal)
+            {
+                modifyProductMinTextBox.BackColor = Color.Red;
+                MessageBox.Show("Minimum value cannot be greater than maximum value. Please correct.", "Invalid Values");
+                return;
+            }
+
+            if (invVal < minVal || invVal > maxVal)
+            {
+                modifyProductInvTextBox.BackColor = Color.Red;
+                MessageBox.Show("Inventory value must not be lower than the minimum value or higher than the maximum value.", "Invalid Values");
+                return;
+            }
+
             Product newProduct = new Product
             {
                 productID = Convert.ToInt32(modifyProductIDTextBox.Text),
                 name = modifyProductNameTextBox.Text,
-                inStock = Convert.ToInt32(modifyProductInvTextBox.Text),
+                inStock = invVal,
                 price = double.Parse(modifyProductPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
-                min = Convert.ToInt32(modifyProductMinTextBox.Text),
-                max = Convert.ToInt32(modifyProductMaxTextBox.Text)
+                min = minVal,
+                max = maxVal
             };
             foreach (Part part in productParts)
             {
@@ -61,6 +81,7 @@ namespace InventoryUI
             inventory.UpdateProduct(productIndex, newProduct);
             this.Close();
         }
+
 
         private void modifyCancelProductButton_Click(object sender, EventArgs e)
         {
@@ -72,23 +93,107 @@ namespace InventoryUI
             
         }
 
+
         private void modifyAddAssocProductButton_Click(object sender, EventArgs e)
         {
             productParts.Add((Part)modifyProductPartsDataGrid.CurrentRow.DataBoundItem);
         }
 
+
         private void modifyDeleteAssocPart_Click(object sender, EventArgs e)
         {
-            Part partSelected = (Part)modifyAssocPartsDataGrid.CurrentRow.DataBoundItem;
-            product.RemoveAssociatedPart(partSelected.partID);
+            try
+            {
+                Part partSelected = (Part)modifyAssocPartsDataGrid.CurrentRow.DataBoundItem;
+                product.RemoveAssociatedPart(partSelected.partID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No part selected to delete.", "Error!");
+                Console.Write(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
         }
+
 
         private void modifyProductPriceCostTextBox_Leave(object sender, EventArgs e)
         {
+            //TODO - why is the price not working on second entry
             double productPrice;
+            modifyProductPriceCostTextBox.BackColor = Color.White;
+            modifySaveProductButton.Enabled = true;
+
+            
+            if (!double.TryParse(modifyProductPriceCostTextBox.Text, out productPrice))
+            {
+                modifyProductPriceCostTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+            }
+
             if (double.TryParse(modifyProductPriceCostTextBox.Text, out productPrice))
             {
                 modifyProductPriceCostTextBox.Text = productPrice.ToString("C", new System.Globalization.CultureInfo("en-US"));
+            }
+        }
+
+
+        private void modifyProductInvTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int invVal;
+
+            modifyProductInvTextBox.BackColor = Color.White;
+            modifySaveProductButton.Enabled = true;
+
+            if (!int.TryParse(modifyProductInvTextBox.Text, out invVal))
+            {
+                modifyProductInvTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+            }
+
+            if (invVal < 0)
+            {
+                modifyProductInvTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+            }
+        }
+
+        private void modifyProductMinTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int minVal;
+
+            modifyProductMinTextBox.BackColor = Color.White;
+            modifySaveProductButton.Enabled = true;
+
+            if (!int.TryParse(modifyProductMinTextBox.Text, out minVal))
+            {
+                modifyProductMinTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+            }
+
+            if (minVal < 0)
+            {
+                modifyProductMinTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+            }
+        }
+
+        private void modifyProductMaxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int maxVal;
+
+            modifyProductMaxTextBox.BackColor = Color.White;
+            modifySaveProductButton.Enabled = true;
+
+            if (!int.TryParse(modifyProductMaxTextBox.Text, out maxVal))
+            {
+                modifyProductMaxTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+            }
+
+            if (maxVal < 0)
+            {
+                modifyProductMaxTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
             }
         }
     }
