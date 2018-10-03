@@ -51,10 +51,6 @@ namespace InventoryUI
             inventory.AddPart(newOutsourced);
             inventory.AddPart(newInhouse);
 
-            //Inhouse n = new Inhouse();
-            //n.partID = 76;
-            //n.name = "Rambotuner";
-
             Product electricScooter = new Product
             {
                 productID = 534,
@@ -162,7 +158,6 @@ namespace InventoryUI
         private void modifyProductButton_Click(object sender, EventArgs e)
         {
             Product productToModify = (Product)productsDataGrid.CurrentRow.DataBoundItem;
-
             ModifyProduct modifyProductForm = new ModifyProduct(inventory, productToModify);
             modifyProductForm.Show();
         }
@@ -206,7 +201,7 @@ namespace InventoryUI
             Part searchedPart;
             string searchTerm = partSearchTextBox.Text.ToLower();
             int s;
-            int rowIndex = -1;
+            int rowIndex;
 
             if (int.TryParse(searchTerm, out s))
             {
@@ -221,7 +216,6 @@ namespace InventoryUI
                 if (row.DataBoundItem.Equals(searchedPart))
                 {
                     rowIndex = row.Index;
-
                     partsDataGrid.CurrentCell = partsDataGrid.Rows[rowIndex].Cells[0];
                     break;
                 }
@@ -233,7 +227,7 @@ namespace InventoryUI
             Product searchedPart;
             string searchTerm = productSearchTextBox.Text.ToLower();
             int s;
-            int rowIndex = -1;
+            int rowIndex;
                       
             if (int.TryParse(searchTerm, out s))
             {
@@ -249,7 +243,6 @@ namespace InventoryUI
                 if (row.DataBoundItem.Equals(searchedPart))
                 {
                     rowIndex = row.Index;
-
                     productsDataGrid.CurrentCell = productsDataGrid.Rows[rowIndex].Cells[0];
                     break;
                 }

@@ -84,12 +84,10 @@ namespace InventoryUI
 
         private void modifyCancelProductButton_Click(object sender, EventArgs e)
         {
-            
             if (MessageBox.Show("Are you sure you want to cancel the edit? Changes will not be saved.", "Confirm Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
             }
-            
         }
 
 
@@ -117,21 +115,24 @@ namespace InventoryUI
 
         private void modifyProductPriceCostTextBox_Leave(object sender, EventArgs e)
         {
-            //TODO - why is the price not working on second entry
             double productPrice;
-            modifyProductPriceCostTextBox.BackColor = Color.White;
-            modifySaveProductButton.Enabled = true;
-
-            
-            if (!double.TryParse(modifyProductPriceCostTextBox.Text, out productPrice))
-            {
-                modifyProductPriceCostTextBox.BackColor = Color.Red;
-                modifySaveProductButton.Enabled = false;
-            }
 
             if (double.TryParse(modifyProductPriceCostTextBox.Text, out productPrice))
             {
                 modifyProductPriceCostTextBox.Text = productPrice.ToString("C", new System.Globalization.CultureInfo("en-US"));
+                modifyProductPriceCostTextBox.BackColor = Color.White;
+                modifySaveProductButton.Enabled = true;
+            }
+
+            try
+            {
+                productPrice = double.Parse(modifyProductPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency);
+            }
+            catch (Exception ex)
+            {
+                modifyProductPriceCostTextBox.BackColor = Color.Red;
+                modifySaveProductButton.Enabled = false;
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -139,7 +140,6 @@ namespace InventoryUI
         private void modifyProductInvTextBox_TextChanged(object sender, EventArgs e)
         {
             int invVal;
-
             modifyProductInvTextBox.BackColor = Color.White;
             modifySaveProductButton.Enabled = true;
 
@@ -159,7 +159,6 @@ namespace InventoryUI
         private void modifyProductMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int minVal;
-
             modifyProductMinTextBox.BackColor = Color.White;
             modifySaveProductButton.Enabled = true;
 
@@ -179,7 +178,6 @@ namespace InventoryUI
         private void modifyProductMaxTextBox_TextChanged(object sender, EventArgs e)
         {
             int maxVal;
-
             modifyProductMaxTextBox.BackColor = Color.White;
             modifySaveProductButton.Enabled = true;
 
@@ -197,9 +195,7 @@ namespace InventoryUI
         }
 
         private void modifyAssocPartSearchButton_Click(object sender, EventArgs e)
-        {
-           
-
+        {          
             Part searchedPart;
             string searchTerm = modifyAssocPartSearchTextBox.Text.ToLower();
             int s;
@@ -220,7 +216,6 @@ namespace InventoryUI
             if (int.TryParse(searchTerm, out s))
             {
                 searchedPart = inventory.LookupPart(s);
-
             }
             else
             {
@@ -232,7 +227,6 @@ namespace InventoryUI
                 if (row.DataBoundItem.Equals(searchedPart))
                 {
                     rowIndex = row.Index;
-
                     modifyProductPartsDataGrid.CurrentCell = modifyProductPartsDataGrid.Rows[rowIndex].Cells[0];
                     break;
                 }

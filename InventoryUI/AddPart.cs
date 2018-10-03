@@ -25,7 +25,6 @@ namespace InventoryUI
 
         private void savePartButton_Click(object sender, EventArgs e)
         {
-           
             int minVal = Convert.ToInt32(partMinTextBox.Text);
             int maxVal = Convert.ToInt32(partMaxTextBox.Text);
             int invVal = Convert.ToInt32(partInvTextBox.Text);
@@ -44,21 +43,19 @@ namespace InventoryUI
                 return;
             }
         
-
             if (inhouseRadioButton.Checked)
+            {
+                inventory.AddPart(new Inhouse
                 {
-
-                    inventory.AddPart(new Inhouse
-                    {
-                        partID = inventory.AssignID(),
-                        name = partNameTextBox.Text,
-                        inStock = invVal,
-                        price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
-                        min = minVal,
-                        max = maxVal,
-                        machineID = Convert.ToInt32(partCompanyNameMachineIDTextBox.Text)
-                    });
-             }
+                    partID = inventory.AssignID(),
+                    name = partNameTextBox.Text,
+                    inStock = invVal,
+                    price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
+                    min = minVal,
+                    max = maxVal,
+                    machineID = Convert.ToInt32(partCompanyNameMachineIDTextBox.Text)
+                });
+            }
 
             if (outsourcedRadioButton.Checked)
             {
@@ -73,6 +70,7 @@ namespace InventoryUI
                     companyName = partCompanyNameMachineIDTextBox.Text
                 });
             }
+
             this.Close();
         }
 
@@ -91,54 +89,10 @@ namespace InventoryUI
             #endregion
 
        
-        private void partPriceCostTextBox_Leave(object sender, EventArgs e)
-        {
-            //Converts entered number into currency format for display
-
-            double price;
-            
-
-            if (double.TryParse(partPriceCostTextBox.Text, out price))
-            {
-                partPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
-                partPriceCostTextBox.BackColor = Color.White;
-                savePartButton.Enabled = true;
-            }
-
-            if (!partPriceCostTextBox.Text.Equals(String.Format("{0:C}", price)))
-            {
-                partPriceCostTextBox.BackColor = Color.Red;
-                savePartButton.Enabled = false;
-            }
-        }
-
-        private void partPriceCostTextBox_TextChanged(object sender, EventArgs e)
-        {
-            //TODO - maybe put the dollar format just in the datagrid view
-
-            //double price;
-            //partPriceCostTextBox.BackColor = Color.White;
-            //savePartButton.Enabled = true;
-
-            //if (!double.TryParse(partPriceCostTextBox.Text, out price))
-            //{
-            //    partPriceCostTextBox.BackColor = Color.Red;
-            //    savePartButton.Enabled = false;
-            //}
-
-            //if (price < 0)
-            //{
-            //   
-            //}
-            
-
-        }
-
         private void partInvTextBox_TextChanged(object sender, EventArgs e)
         {
             
             int invVal;
-            
             partInvTextBox.BackColor = Color.White;
             savePartButton.Enabled = true;
 
@@ -155,6 +109,30 @@ namespace InventoryUI
             }
         }
 
+        private void partPriceCostTextBox_Leave(object sender, EventArgs e)
+        {
+
+            double price;
+
+            if (double.TryParse(partPriceCostTextBox.Text, out price))
+            {
+                partPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
+                partPriceCostTextBox.BackColor = Color.White;
+                savePartButton.Enabled = true;
+            }
+
+            try
+            {
+                price = double.Parse(partPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency);
+            }
+            catch (Exception ex)
+            {
+                partPriceCostTextBox.BackColor = Color.Red;
+                savePartButton.Enabled = false;
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         private void cancelAddPartButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you wish to cancel? Any changes will not be saved.", "Confirm Cancel", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -166,8 +144,6 @@ namespace InventoryUI
         private void partMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int minVal;
-            
-
             partMinTextBox.BackColor = Color.White;
             savePartButton.Enabled = true;
 
@@ -187,8 +163,6 @@ namespace InventoryUI
         private void partMaxTextBox_TextChanged(object sender, EventArgs e)
         {
             int maxVal;
-
-
             partMaxTextBox.BackColor = Color.White;
             savePartButton.Enabled = true;
 
@@ -208,8 +182,6 @@ namespace InventoryUI
         private void partCompanyNameMachineIDTextBox_TextChanged(object sender, EventArgs e)
         {
             int validMachineID;
-
-
             partCompanyNameMachineIDTextBox.BackColor = Color.White;
             savePartButton.Enabled = true;
 

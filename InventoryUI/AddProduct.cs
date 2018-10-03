@@ -38,7 +38,6 @@ namespace InventoryUI
             int maxVal = Convert.ToInt32(productMaxTextBox.Text);
             int invVal = Convert.ToInt32(productInvTextBox.Text);
 
-            
             if (minVal > maxVal)
             {
                 productMinTextBox.BackColor = Color.Red;
@@ -60,41 +59,48 @@ namespace InventoryUI
             }
 
             Product newProduct = new Product
-                {
-                    productID = inventory.AssignID(),
-                    name = productNameTextBox.Text,
-                    inStock = invVal,
-                    price = double.Parse(productPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
-                    min = minVal,
-                    max = maxVal
-                };
-                foreach (Part part in partSelections)
-                {
-                    newProduct.AddAssociatedPart(part);
-                }
-                inventory.AddProduct(newProduct);
-                this.Close();
-         }
+            {
+                productID = inventory.AssignID(),
+                name = productNameTextBox.Text,
+                inStock = invVal,
+                price = double.Parse(productPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency),
+                min = minVal,
+                max = maxVal
+            };
+
+            foreach (Part part in partSelections)
+            {
+                newProduct.AddAssociatedPart(part);
+            }
+
+            inventory.AddProduct(newProduct);
+            this.Close();
+        }
 
 
         private void productPriceCostTextBox_Leave(object sender, EventArgs e)
         {
-            //Converts price value to currency format for aesthetic
-            //TODO - this is weird
+            //Converts price value to currency format for UI aesthetic
             double productPrice;
-            productPriceCostTextBox.BackColor = Color.White;
-            saveProductButton.Enabled = true;
-
-            if (!double.TryParse(productPriceCostTextBox.Text, out productPrice))
-            {
-                productPriceCostTextBox.BackColor = Color.Red;
-                saveProductButton.Enabled = false;
-            } 
 
             if (double.TryParse(productPriceCostTextBox.Text, out productPrice))
             {
                 productPriceCostTextBox.Text = productPrice.ToString("C", new System.Globalization.CultureInfo("en-US"));
-            }           
+                productPriceCostTextBox.BackColor = Color.White;
+                saveProductButton.Enabled = true;
+            }
+
+            try
+            {
+                productPrice = double.Parse(productPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency);
+
+            }
+            catch (Exception ex)
+            {
+                productPriceCostTextBox.BackColor = Color.Red;
+                saveProductButton.Enabled = false;
+                Console.WriteLine(ex.Message);
+            }
         }
 
 
@@ -110,7 +116,6 @@ namespace InventoryUI
         private void addAssocProductButton_Click(object sender, EventArgs e)
         {
             partSelections.Add((Part)productPartsDataGrid.CurrentRow.DataBoundItem);
-
         }
 
 
@@ -140,7 +145,6 @@ namespace InventoryUI
             if (int.TryParse(searchTerm, out s))
             {
                 searchedPart = inventory.LookupPart(s);
-
             }
             else
             {
@@ -152,7 +156,6 @@ namespace InventoryUI
                 if (row.DataBoundItem.Equals(searchedPart))
                 {
                     rowIndex = row.Index;
-
                     productPartsDataGrid.CurrentCell = productPartsDataGrid.Rows[rowIndex].Cells[0];
                     break;
                 }
@@ -163,7 +166,6 @@ namespace InventoryUI
         private void productInvTextBox_TextChanged(object sender, EventArgs e)
         {
             int invVal;
-
             productInvTextBox.BackColor = Color.White;
             saveProductButton.Enabled = true;
 
@@ -184,7 +186,6 @@ namespace InventoryUI
         private void productMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int minVal;
-
             productMinTextBox.BackColor = Color.White;
             saveProductButton.Enabled = true;
 
@@ -206,7 +207,6 @@ namespace InventoryUI
         private void productMaxTextBox_TextChanged(object sender, EventArgs e)
         {
             int maxVal;
-
             productMaxTextBox.BackColor = Color.White;
             saveProductButton.Enabled = true;
 

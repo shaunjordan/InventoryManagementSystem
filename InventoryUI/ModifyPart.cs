@@ -113,26 +113,48 @@ namespace InventoryUI
         private void modifyInhouseRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             modifyPartMachineOrCompanyLabel.Text = "Machine ID";
+            int validMachineID;
+
+            if (!int.TryParse(modifyPartCompanyOrMachine.Text, out validMachineID))
+            {
+                modifyPartCompanyOrMachine.BackColor = Color.Red;
+                modifySavePartButton.Enabled = false;
+            }
         }
 
         private void modifyOutsourcedRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             modifyPartMachineOrCompanyLabel.Text = "Company Name";
+            modifyPartCompanyOrMachine.BackColor = Color.White;
+            modifySavePartButton.Enabled = true;
         }
 
         private void modifyPartPriceCostTextBox_Leave(object sender, EventArgs e)
         {
             double price;
+
             if (double.TryParse(modifyPartPriceCostTextBox.Text, out price))
             {
                 modifyPartPriceCostTextBox.Text = price.ToString("C", new System.Globalization.CultureInfo("en-US"));
+                modifyPartPriceCostTextBox.BackColor = Color.White;
+                modifySavePartButton.Enabled = true;
+            }
+
+            try
+            {
+                price = double.Parse(modifyPartPriceCostTextBox.Text, System.Globalization.NumberStyles.Currency);
+            }
+            catch (Exception ex)
+            {
+                modifyPartPriceCostTextBox.BackColor = Color.Red;
+                modifySavePartButton.Enabled = false;
+                Console.WriteLine(ex.Message);
             }
         }
 
         private void modifyPartInvTextBox_TextChanged(object sender, EventArgs e)
         {
             int invVal;
-
             modifyPartInvTextBox.BackColor = Color.White;
             modifySavePartButton.Enabled = true;
 
@@ -152,8 +174,6 @@ namespace InventoryUI
         private void modifyPartMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int minVal;
-
-
             modifyPartMinTextBox.BackColor = Color.White;
             modifySavePartButton.Enabled = true;
 
@@ -173,8 +193,6 @@ namespace InventoryUI
         private void modifyPartMaxTextBox_TextChanged(object sender, EventArgs e)
         {
             int maxVal;
-
-
             modifyPartMaxTextBox.BackColor = Color.White;
             modifySavePartButton.Enabled = true;
 
@@ -194,8 +212,6 @@ namespace InventoryUI
         private void modifyPartCompanyOrMachine_TextChanged(object sender, EventArgs e)
         {
             int validMachineID;
-            //TODO - validation does not hit when selecting inhouse on outsourced product
-
             modifyPartCompanyOrMachine.BackColor = Color.White;
             modifySavePartButton.Enabled = true;
 

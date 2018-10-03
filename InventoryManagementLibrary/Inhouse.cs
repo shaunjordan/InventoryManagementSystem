@@ -9,6 +9,9 @@ namespace InventoryManagementLibrary
 {
     public class Inhouse : Part
     {
+        /// <summary>
+        /// Indicates the origin of inhouse parts
+        /// </summary>
         [DisplayName("Machine ID")]
         public int machineID { get; set; }
     }
