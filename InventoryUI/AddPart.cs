@@ -15,6 +15,7 @@ namespace InventoryUI
     public partial class AddPart : Form
     {
         
+        //TODO: add validation to separate class
         private Inventory inventory;
         
         public AddPart(Inventory inventoryClass)
